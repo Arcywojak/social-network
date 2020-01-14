@@ -1,0 +1,4 @@
+{
+    "mongoURI":"mongodb+srv://full-stack:fullstack123@full-stack-wxbug.gcp.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret":"mySecretKey123"
+}
