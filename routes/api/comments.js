@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-//const auth = require('../../middleware/auth');
+const auth = require('../../middleware/auth');
 
 //comment model
 const Comment = require('../../models/comment');
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 // @desc    Create comment
 // @access  Private //NOT DONE
 
-router.post('/', (req, res) => {
+router.post('/', auth, (req, res) => {
     const newComment = new Comment({
         user_id:req.body.user_id,
         user_name:req.body.user_name,
@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
 // @desc    Delete item
 // @access  Private //NOT DONE
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', auth, (req, res) => {
     Comment.findById(req.params.id)
     .then( Comment.remove()
     .then( () => res.json({status:"delete successful"})))
