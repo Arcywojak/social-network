@@ -6,6 +6,7 @@ const app = express();
 
 app.use(express.json());
 
+//DB config
 const db = config.get('mongoURI');
 
 mongoose
