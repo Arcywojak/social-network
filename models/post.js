@@ -23,6 +23,10 @@ const PostSchema = new Schema({
         type:String,
         require:true
     },
+    type:{
+        type:String,
+        require:true
+    },
     add_date:{
         type:Date,
         default:Date.now

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 //Create schema
 const CommentSchema = new Schema({
-    user_id: {
+    post_id: {
         type:String,
         require:true
     },

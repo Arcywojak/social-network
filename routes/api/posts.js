@@ -25,7 +25,8 @@ router.post('/', auth, (req, res) => {
         user_name:req.body.user_name,
         user_image:req.body.user_image,
         title:req.body.title,
-        content:req.body.content
+        content:req.body.content,
+        type:req.body.type
     });
 
     newPost.save().then(post => res.json(post));

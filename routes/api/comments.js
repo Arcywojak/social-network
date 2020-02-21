@@ -5,12 +5,12 @@ const auth = require('../../middleware/auth');
 //comment model
 const Comment = require('../../models/comment');
 
-// @route   Get api/scomment
-// @desc    Get All  comment
+// @route   Get api/comment
+// @desc    Get TO ONE POST  comments
 // @access  Public
 
-router.get('/', (req, res) => {
-    Item.find()
+router.get('/:id', auth, (req, res) => {
+    Comment.find({post_id: req.params.id})
     .sort({date:-1})
     .then(comment => res.json(comment))
 })
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
 router.post('/', auth, (req, res) => {
     const newComment = new Comment({
-        user_id:req.body.user_id,
+        post_id:req.body.post_id,
         user_name:req.body.user_name,
         user_image:req.body.user_image,
         content:req.body.content

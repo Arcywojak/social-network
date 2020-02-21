@@ -11,11 +11,14 @@ const User = require('../../models/user');
 // @desc    Register new user
 // @access  Public
 router.post('/', (req,res) => {
-    const {name, email, image, password} = req.body;
+    const {name, email, image, password, repPassword} = req.body;
 
     //Simple validation
     if(!name || !password || !email) {
         return res.status(400).json({msg:"Please, enter all fields"})
+    }
+    if(password !== repPassword) {
+        return res.status(400).json({msg:"passwords do not match"})
     }
 
     //Check for existing user
@@ -52,7 +55,8 @@ router.post('/', (req,res) => {
                                     user:{
                                         id: user.id,
                                         name: user.name,
-                                        email: user.email
+                                        email: user.email,
+                                        image:user.image
                                     }
                                 });
                             }

@@ -1,0 +1,122 @@
+@import './main-colors.scss';
+.mobile-header{
+    width:100%;
+    position: fixed;
+    height:40px;
+    background-color:$blue;
+    padding:0 5vw;
+    z-index: 2;
+    border-bottom: 1px solid $dark-blue;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+}
+.mobile-filler{
+    height:45px;
+}
+.mobile-nav{
+    width:100%;
+    height:100%;
+    display: grid;
+    grid-template-columns: 70px calc(100% - 70px);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.nav-logo-mobile{
+    color:$very-light-blue;
+    font-size: 25px; 
+    height: inherit;
+    line-height: 35px;
+    cursor: pointer;
+}
+.hamburger{
+    padding: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    margin: 0 0 0 auto;
+}
+.hamburger-box {
+    width: 30px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+    
+  }
+  .hamburger-inner {
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background: $very-light-blue;
+    left: 0;
+    top: calc(50% - 1.5px);
+    transition: background-color .3s .1s ease-in-out;
+
+    &.active{
+        background-color: transparent;
+
+        &::before{
+            transform: translateY(9px) rotate(45deg);
+        }
+        &::after{
+            transform: translateY(-7px) rotate(-45deg);
+        }
+    }
+  }
+.hamburger-inner::before, .hamburger-inner::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background: $very-light-blue;
+    left: 0;
+    transition: transform .3s .1s ease-in-out;
+}
+
+.hamburger-inner::before {
+top: -8px;
+}
+
+.hamburger-inner::after {
+top: 8px;
+}
+.navigation{
+    position: fixed;
+    top:41px;
+    height:calc(100vh - 41px);
+    background-color: $blue;
+    width:100%;
+    max-width: 300px;
+    left:-300px;
+    transition: transform .6s ease-in-out, box-shadow .6s cubic-bezier(.26,.1,1,-0.16);
+
+    &.active{
+        transform: translateX(300px);
+    }
+    overflow-y:scroll;
+  overflow-x:hidden;
+  
+}
+.navigation-list{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding:0;
+    height:100%;
+    min-height: 500px;
+    a{
+        cursor: pointer;
+        text-decoration: none;
+        color:$very-light-blue;
+        font-size: 1.7rem;
+    }
+}
+.navigation-item{
+    text-align: center;
+    border-bottom: 2px solid lighten($blue,4%); 
+    padding-bottom: 8px;
+    width:260px;
+}
