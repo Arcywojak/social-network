@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import '../../styles/homeLoggedIn.css';
+import '../../../styles/homeLoggedIn.css';
 
 
 class HomeLoggedIn extends Component {
@@ -19,8 +19,6 @@ class HomeLoggedIn extends Component {
         }
 
         return (
-            <main className="container">
-                <div className="inner-container">
                     <div className="form-create-post">
                         <div className="form-create-post-title">
                             Create a post
@@ -28,7 +26,7 @@ class HomeLoggedIn extends Component {
                         <div className="inner-form">
                             <div className="img-center">
                                 <h2>Hello {this.props.user.name}</h2>
-                                <img src={require(`../../images/avatars/${this.props.user?.image}`)} alt="me" />
+                                <img src={require(`../../../images/avatars/${this.props.user?.image}`)} alt="me" />
                             </div>
                             <div>
                                 <div className="input-and-label">
@@ -60,8 +58,6 @@ class HomeLoggedIn extends Component {
                             <button className="btn-1 light-blue">Release</button>
                         </div>
                     </div>
-                </div>
-            </main>
         )
     }
    

@@ -4,8 +4,8 @@ import Mobile from './Mobile';
 import {connect} from 'react-redux';
 import {loadUser} from '../../../actions/authActions';
 import PropTypes from 'prop-types';
-import Register from '../../loggedOut/Register';
-import Login from '../../loggedOut/Login';
+import Register from '../../loggedOut/component.Register';
+import Login from '../../loggedOut/component.Login';
 import {toggleAuth} from '../../../functions/functions';
 import '../../../styles/loader.css'
 

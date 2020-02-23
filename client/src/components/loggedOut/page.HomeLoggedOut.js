@@ -10,9 +10,6 @@ import readingGlass from '../../images/ReadingGlass.svg';
 import man from '../../images/Man.svg';
 import okShield from '../../images/OkShield.svg';
 
-import Register from './Register';
-import Login from './Login';
-
 
 
 class HomeLoggedOut extends Component {

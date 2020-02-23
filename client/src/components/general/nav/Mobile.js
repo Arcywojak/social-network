@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {logout} from '../../../actions/authActions'
-import Register from '../../loggedOut/Register';
-import Login from '../../loggedOut/Login';
 import {toggleAuth} from '../../../functions/functions';
 
 class Mobile extends Component {
