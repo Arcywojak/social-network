@@ -6,7 +6,6 @@ import {loadUser} from '../../../actions/authActions';
 import PropTypes from 'prop-types';
 import Register from '../../loggedOut/component.Register';
 import Login from '../../loggedOut/component.Login';
-import {toggleAuth} from '../../../functions/functions';
 import '../../../styles/loader.css'
 
 class Nav extends Component  {
@@ -51,7 +50,6 @@ class Nav extends Component  {
             </div>
 
             {header}
-            <div className="overlay none"  onClick={() => {toggleAuth(null, true)}}></div>
             <Register/>
             <Login/>
             </>

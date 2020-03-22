@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import logo from '../../images/Logo.svg';
+import {toggleAuth} from '../../functions/functions';
 import '../../styles/contact.css';
 
 const Contact = () => {
@@ -54,6 +55,8 @@ const Contact = () => {
                     </form>
                 </section>
             </div>
+
+            <div className="overlay none"  onClick={() => {toggleAuth(null, true)}}></div>
         </main>
     )
 }

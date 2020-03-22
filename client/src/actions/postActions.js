@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {GET_POSTS, ADD_POST, DELETE_POST, ITEMS_LOADING} from './types';
 //import {tokenConfig} from './authActions';
-//import {returnErrors} from './errorActions';
+import {returnErrors} from './errorActions';
 
 export const getPosts = () => dispatch => {
     dispatch(setItemsLoading() );
@@ -13,19 +13,19 @@ export const getPosts = () => dispatch => {
             payload:res.data
         })
     })
-    //.catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
+    .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 }
 
-export const addItem = (item) => (dispatch, getState) => {
+export const addPost = (post) => (dispatch, getState) => {
     axios
-    .post('/api.posts', item)
+    .post('/api.posts', post)
     .then(res => {
         dispatch({
             type:ADD_POST,
             payload:res.data
         })
     })
-    //.catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
+    .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
   
 }
 

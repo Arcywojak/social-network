@@ -47,8 +47,38 @@ export const toggleAuth = (block='', close=false) => {
             login.classList.remove('none');
             login.classList.add('anim-fade-in');
         }
-    }
+    } 
+}
 
+export const toggleCreateForm = (show=false) => {
+    let form = document.querySelector('.form-create-post')
+
+    if(show){
+        form.classList.remove('none');
+        form.classList.add('anim-fade-in'); 
+        toggleOverlay(show);
+    } else {
+        form.classList.add('none');
+        form.classList.remove('anim-fade-in'); 
+    }
     
 }
 
+export const togglePostAddedInformation = (show=false) => {
+    let postAddedInformation = document.querySelector('.post-added-information');
+    
+    if(show){  
+        postAddedInformation.classList.remove('none');
+        postAddedInformation.classList.add('anim-fade-in');
+        toggleOverlay(show);
+    } else {
+        postAddedInformation.classList.add('none');
+        postAddedInformation.classList.remove('anim-fade-in');  
+    }
+}
+
+export const removeAll = () => {
+    togglePostAddedInformation();
+    toggleCreateForm();
+    toggleOverlay();
+}

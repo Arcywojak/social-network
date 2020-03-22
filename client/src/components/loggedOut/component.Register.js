@@ -38,7 +38,7 @@ class Register extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const {error, isAuthenticated} = this.props;
+        const {error} = this.props;
         
         if(error !== prevProps.error){
             
@@ -57,11 +57,7 @@ class Register extends Component {
                     errors: null
                 })  
             }
-        }
-        if(isAuthenticated){
-            toggleAuth(null, true);
-        }
-        
+        }      
     }
 
     scrollTopIfErrorOccur = () => {
@@ -101,8 +97,8 @@ class Register extends Component {
     render() {
 
         return (
-            <div>
-                <form className="form-auth register none" onSubmit={this.handleSubmit}>
+            <div>              
+                <form className="form-auth register flying-component none" onSubmit={this.handleSubmit}>
                     <div className="flying-exit">
                         <img src={x} alt="exit" onClick={() => {toggleAuth(null, true)}}/>
                     </div>
@@ -164,7 +160,7 @@ class Register extends Component {
                         </div>
                         <p>
                             By creating an account you agree with our   
-                            <Link to='/rulebook'> regulations </Link>   
+                            <Link to='/rulebook' onClick={()=>toggleAuth('', true)}> regulations </Link>   
                             and the fact that shrek is the best movie
                         </p> 
                         <button className="btn-1 light-blue">Register</button>

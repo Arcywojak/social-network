@@ -25,7 +25,7 @@ class Login extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const {error, isAuthenticated} = this.props;
+        const {error} = this.props;
         if(error !== prevProps.error){
             
             if(error.id === 'LOGIN_FAIL'){
@@ -39,10 +39,6 @@ class Login extends Component {
                 })
             }
         }
-        if(isAuthenticated){
-            toggleAuth(null, true);
-        }
-        
     }
 
     changeData = (e) => {
@@ -63,8 +59,9 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                <form className="form-auth login anim-fade-in none" onSubmit={this.handleSubmit}>
+            <div >
+                
+                <form className="form-auth login anim-fade-in flying-component none" onSubmit={this.handleSubmit}>
                     <div className="flying-exit">
                         <img src={x} alt="exit" onClick={() => {this.props.clearErrors();toggleAuth(null, true)}}/>
                     </div>

@@ -6,7 +6,7 @@ const auth = require('../../middleware/auth');
 const Comment = require('../../models/comment');
 
 // @route   Get api/comment
-// @desc    Get TO ONE POST  comments
+// @desc    Get TO ONE POST comments
 // @access  Public
 
 router.get('/:id', auth, (req, res) => {

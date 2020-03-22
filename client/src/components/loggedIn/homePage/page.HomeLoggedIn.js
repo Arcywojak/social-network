@@ -3,7 +3,11 @@ import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import '../../../styles/homeLoggedIn.css';
+import {toggleAuth, removeAll} from '../../../functions/functions';
 import CreatePostForm from './component.CreatePostForm';
+import PostList from '../postsModals/component.PostList';
+import PostAdded from './component.PostAdded';
+
 
 
 class HomeLoggedIn extends Component {
@@ -11,6 +15,11 @@ class HomeLoggedIn extends Component {
     static propTypes = {
         isAuthenticated: PropTypes.bool.isRequired,
         user: PropTypes.object.isRequired
+    }
+    componentDidMount(){
+        if(document.querySelector('.overlay') !== null){    
+        toggleAuth(null, true);
+        }
     }
     
     render(){
@@ -20,10 +29,16 @@ class HomeLoggedIn extends Component {
         }
 
         return (
-            <main className="container">
+            <main className="container home-logged-in">
                 <div className="inner-container">
                     <CreatePostForm/>
+                    <PostAdded />
+
+                    <PostList />
                 </div>
+
+                <div className="overlay none"  onClick={()=>removeAll()}></div>
+
             </main>
         )
     }

@@ -1,7 +1,17 @@
 @import './main-colors.scss';
 
 
+.container.home-logged-in{
+    margin: 0;
+}
+.inner-container{
+    padding: 20px;
+    border-left:1px solid $dark-blue;
+    border-right:1px solid $dark-blue;
 
+    background: rgb(150,227,255);
+    background: linear-gradient(94deg, rgba(150,227,255,1) 0%, rgba(170,230,255,1) 100%);
+}
 
 
 .grid-block{
@@ -156,18 +166,17 @@
         opacity: 0;
     } 
     to{
-        opacity: 0.5;
+        opacity:.5;
     }
 }
 @keyframes reverseFadeInOverlay{
     from{
-        opacity: 0.5;
+        opacity: .5;
     } 
     to{
         opacity: 0;
     }
 }
-
 .anim-fade-in-overlay{
     opacity: 0;
     animation-name: fadeInOverlay;
@@ -176,7 +185,7 @@
     animation-fill-mode: forwards;
 }
 .reverse-anim-fade-in-overlay{
-    opacity: 0.5;
+    opacity: .5;
     animation-name: reverseFadeInOverlay;
     animation-duration: .5s;
     animation-delay: .1s;

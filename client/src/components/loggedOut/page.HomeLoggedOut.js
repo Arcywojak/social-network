@@ -53,6 +53,8 @@ class HomeLoggedOut extends Component {
                     <button className="btn-1 light-blue" onClick={() => {toggleAuth('LOGIN')}}>Login</button>
                 </section>
             </div>
+
+            <div className="overlay none"  onClick={() => {toggleAuth(null, true)}}></div>
         </main>
     )
   }

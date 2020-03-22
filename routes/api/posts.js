@@ -10,7 +10,7 @@ const Post = require('../../models/post');
 // @access  Public
 
 router.get('/', (req, res) => {
-    Item.find()
+    Post.find()
     .sort({date:-1})
     .then(items => res.json(items))
 })
@@ -26,15 +26,15 @@ router.post('/', auth, (req, res) => {
         user_image:req.body.user_image,
         title:req.body.title,
         content:req.body.content,
-        type:req.body.type
+        tags:req.body.type
     });
 
     newPost.save().then(post => res.json(post));
 
 });
 
-// @route   Delete api/items
-// @desc    Delete item
+// @route   Delete api/posts
+// @desc    Delete post
 // @access  Private 
 
 router.delete('/:id', auth, (req, res) => {

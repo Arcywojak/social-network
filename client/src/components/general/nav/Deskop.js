@@ -18,7 +18,7 @@ class Deskop extends Component {
     const navOptions = this.props.isAuthenticated ? (
         <ul className="nav-list five">
             <li className="nav-link">
-                <NavLink to="/">Home</NavLink>
+                <NavLink exact to="/">Home</NavLink>
             </li>
             <li className="nav-link">
                 <NavLink to="/about">about</NavLink>

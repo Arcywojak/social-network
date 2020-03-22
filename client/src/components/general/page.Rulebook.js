@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../styles/rulebook.css'
+import {toggleAuth} from '../../functions/functions';
 
 const Rulebook = () => {
     return (
@@ -28,6 +29,7 @@ const Rulebook = () => {
                 
             </ol>
         </div>
+        <div className="overlay none"  onClick={() => {toggleAuth(null, true)}}></div>  
          
         </main>
     )

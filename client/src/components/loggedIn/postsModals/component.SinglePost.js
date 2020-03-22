@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -9,16 +8,16 @@ class HomeLoggedIn extends Component {
     static propTypes = {
         isAuthenticated: PropTypes.bool
     }
+
+    
     
     render(){
-
-        //if(!this.props.isAuthenticated){
-        //   return  <Redirect to="/welcome" />
-        //}
+        const {post} = this.props;
 
         return (
-            <div>
-                Hi ima loged in
+            <div className="single-post">
+                {post.title} <br/>
+                {post.content}
             </div>
         )
     }
