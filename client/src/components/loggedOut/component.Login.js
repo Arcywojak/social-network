@@ -12,9 +12,9 @@ import { connect } from 'react-redux';
 class Login extends Component {
 
     state = {
-        email:'',
-        password:'',
-        errors:null
+        email1:'',
+        password1:'',
+        errors1:null
     }
 
     static propTypes = {
@@ -31,11 +31,11 @@ class Login extends Component {
             if(error.id === 'LOGIN_FAIL'){
                 
                 this.setState({
-                    errors: error.msg.msg
+                    errors1: error.msg.msg
                 })
             } else {
                 this.setState({
-                    errors: null
+                    errors1: null
                 })
             }
         }
@@ -50,9 +50,11 @@ class Login extends Component {
         e.preventDefault();
 
         const user = {
-            email: this.state.email,
-            password: this.state.password
+            email: this.state.email1,
+            password: this.state.password1
         }
+
+        console.log(this.state.errors1)
         
         this.props.login(user);
     }
@@ -74,13 +76,13 @@ class Login extends Component {
                         <span className="active" onClick={() => {toggleAuth('LOGIN')}}>Login</span>
                         <span onClick={() => {toggleAuth('REGISTER')}}>Register</span>
                     </div>
-                     {this.state.errors ? (<h2>{this.state.errors}</h2>) : ('') }
-                    <label htmlFor="email">Email</label>
-                    <input type="mail" id="email" name="email"
+                     {this.state.errors1 ? (<div className="error-msg">{this.state.errors1}</div>) : ('') }
+                    <label htmlFor="email1">Email</label>
+                    <input type="mail" id="email1" name="email"
                      onChange={(e) => {this.changeData(e)}}/>
 
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password"
+                    <label htmlFor="password1">Password</label>
+                    <input type="password" id="password1" name="password"
                     onChange={(e) => {this.changeData(e)}}/>
                     
                     <button className="btn-1 light-blue">Login</button>

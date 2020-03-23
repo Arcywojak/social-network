@@ -23,8 +23,8 @@ const PostSchema = new Schema({
         type:String,
         require:true
     },
-    type:{
-        type:String,
+    tags:{
+        type:Array,
         require:true
     },
     add_date:{

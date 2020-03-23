@@ -13,8 +13,8 @@ import PostAdded from './component.PostAdded';
 class HomeLoggedIn extends Component {
 
     static propTypes = {
-        isAuthenticated: PropTypes.bool.isRequired,
-        user: PropTypes.object.isRequired
+        isAuthenticated: PropTypes.bool,
+        user: PropTypes.object
     }
     componentDidMount(){
         if(document.querySelector('.overlay') !== null){    
@@ -37,7 +37,7 @@ class HomeLoggedIn extends Component {
                     <PostList />
                 </div>
 
-                <div className="overlay none"  onClick={()=>removeAll()}></div>
+                <div className="overlay"  onClick={()=>removeAll()}></div>
 
             </main>
         )

@@ -23,11 +23,11 @@ class Register extends Component {
 
     state = {
         username:'',
-        email:'',
-        password:'',
+        email2:'',
+        password2:'',
         repPass:'',
         avatar:'noImg.png',
-        errors:null
+        errors2:null
     }
 
     static propTypes = {
@@ -50,11 +50,11 @@ class Register extends Component {
                 
                 
                 this.setState({
-                    errors: error.msg.msg
+                    errors2: error.msg.msg
                 })
             } else {
                 this.setState({
-                    errors: null
+                    errors2: null
                 })  
             }
         }      
@@ -85,8 +85,8 @@ class Register extends Component {
 
         const newUser = {
             username: this.state.username,
-            email: this.state.email,
-            password: this.state.password,
+            email: this.state.email2,
+            password: this.state.password2,
             repPassword: this.state.repPass,
             image: this.state.avatar
         }
@@ -112,16 +112,16 @@ class Register extends Component {
                     </div>
 
                     <div className="scroll-me-babe" id="reg">
-                    {this.state.errors ? (<h2>{this.state.errors}</h2>) : ('') }  
+                    {this.state.errors2 ? (<div className="error-msg">{this.state.errors2}</div>) : ('') }  
                         <input type="text" id="username" name="username" placeholder="USERNAME"
                          onChange={(e) => {this.changeData(e)}}/>
 
                     
-                        <input type="mail" id="email" name="email" placeholder="EMAIL"
+                        <input type="mail" id="email2" name="email" placeholder="EMAIL"
                         onChange={(e) => {this.changeData(e)}}/>
 
                     
-                        <input type="password" id="password" name="password" placeholder="PASSWORD"
+                        <input type="password" id="password2" name="password" placeholder="PASSWORD"
                          onChange={(e) => {this.changeData(e)}}/>
 
                         

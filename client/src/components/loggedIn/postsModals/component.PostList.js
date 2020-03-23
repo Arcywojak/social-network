@@ -7,8 +7,8 @@ import SinglePost from './component.SinglePost';
 class PostList extends Component {
 
     static propTypes = {
-        posts: PropTypes.object,
-        getPosts: PropTypes.func.isRequired
+        posts: PropTypes.array,
+        getPosts: PropTypes.func
     }
 
     componentDidMount(){
@@ -19,13 +19,13 @@ class PostList extends Component {
 
     const listOfPosts = this.props.posts.map(post => {
         return (
-            <SinglePost post={post} key={post.id}/>
+            <SinglePost post={post} key={post._id}/>
         )
         
     })
     
         return (
-            <div>
+            <div className="post-list-container">
                 {listOfPosts}
             </div>
         )

@@ -3,8 +3,8 @@ import {removeAll} from '../../../functions/functions'
 
 const PostAdded = () => {
     return (
-        <div className="flying-component post-added-information">
-            <div className="post-added-information-first">
+        <div className="flying-component post-added-information none">
+            <div className="post-added-information-title">
                 Post has been added
             </div>
             <div className="post-added-information-second">

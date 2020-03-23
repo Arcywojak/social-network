@@ -19,7 +19,7 @@ class HomeLoggedIn extends Component {
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         user: PropTypes.object,
-        addPost: PropTypes.func.isRequired
+        addPost: PropTypes.func
     }
 
     handleChange = (e) => {
@@ -48,7 +48,6 @@ class HomeLoggedIn extends Component {
         }
     }
     removeTag = e => {
-       // console.log(e.target.id);
         let listOfTags = this.state.tags;
         let newList = listOfTags.filter(tag => tag !== e.target.id);
         this.setState({
@@ -61,6 +60,9 @@ class HomeLoggedIn extends Component {
         e.preventDefault();
 
         const newPost = {
+            user_id: this.props.user._id,
+            user_name: this.props.user.name,
+            user_image: this.props.user.image,
             title:this.state.title,
             content:this.state.content,
             tags:this.state.tags
@@ -71,10 +73,11 @@ class HomeLoggedIn extends Component {
             tags:[]
         })
 
-        removeAll();
+        toggleCreateForm();
         togglePostAddedInformation(true);
+       
 
-        console.log(newPost);
+        this.props.addPost(newPost);
     }
     
     render(){
@@ -83,7 +86,7 @@ class HomeLoggedIn extends Component {
             this.state.tags.map(tag => {
                 return(
                 <>
-                <div className="tag-to-add" key={Math.random()} 
+                <div className="tag-to-add" key={tag} 
                 id={tag} onClick={(e) => {this.removeTag(e)}}>
                     <i id={tag}>#{tag}</i>
                     
@@ -124,9 +127,7 @@ class HomeLoggedIn extends Component {
                 <form className="form-create-post flying-component none" onSubmit={this.handleSubmit}>
                     <div className="form-create-post-title">
                         Create a post
-                        
                             <img src={x} alt="exit" onClick={()=>{removeAll()}}/>
-                        
                     </div>
                     <div className="scrollable">
                         <div className="inner-form">
@@ -186,6 +187,7 @@ class HomeLoggedIn extends Component {
 }
 
 const mapStateToProps = state => {
+
     return {
         isAuthenticated: state.auth.isAuthenticated,
         user: state.auth.user

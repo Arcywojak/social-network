@@ -1,6 +1,6 @@
 @import './main-colors.scss';
 
-.form-create-post{
+.form-create-post, .post-added-information{
     &.flying-component{
         width:95%;  
     }
@@ -31,10 +31,10 @@
     padding:0 15px;
     font-size: 13px;
 }
-.form-create-post-title{
+.form-create-post-title, .post-added-information-title{
     background-color: $light-blue;
     border-radius:15px 15px 0 0;
-    padding:20px 20px 20px 15px;
+    padding:20px 20px 20px 30px;
     font-size: 20px;
     font-weight: 500;
     border-bottom: 1px solid $dark-blue;
@@ -234,5 +234,38 @@ textarea{
         border-radius: 50%;
         border:1px solid $light-blue;
         cursor: pointer;
+    }
+}
+.post-added-information{
+    
+    max-width: 500px;
+
+    &.flying-component{
+        top:-80vh;
+
+        @media(max-width: 540px){
+            top:-100vh;
+        }
+    }
+
+    &-second{
+        padding: 0 30px;
+        h2{
+            font-weight: 500;
+            font-size: 23px;
+            margin-bottom: 100px;
+        }
+    }
+
+    @media(max-width: 540px){
+        height:100vh;
+
+        &-second{
+            h2{
+                font-weight: 500;
+                font-size: 19px;
+                margin: 50px 0;
+            }
+        }
     }
 }

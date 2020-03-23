@@ -1,4 +1,4 @@
-.form-create-post {
+.form-create-post, .post-added-information {
   min-width: 300px;
   max-width: 700px;
   position: relative;
@@ -8,17 +8,17 @@
   border: 1px solid #0E153A;
 }
 
-.form-create-post.flying-component {
+.form-create-post.flying-component, .post-added-information.flying-component {
   width: 95%;
 }
 
-.form-create-post .btn-1 {
+.form-create-post .btn-1, .post-added-information .btn-1 {
   margin: 15px auto 40px;
   background-color: red;
 }
 
 @media (max-width: 540px) {
-  .form-create-post.flying-component {
+  .form-create-post.flying-component, .post-added-information.flying-component {
     width: 100%;
     border-radius: 0;
   }
@@ -30,10 +30,10 @@
   font-size: 13px;
 }
 
-.form-create-post-title {
+.form-create-post-title, .post-added-information-title {
   background-color: #22D1EE;
   border-radius: 15px 15px 0 0;
-  padding: 20px 20px 20px 15px;
+  padding: 20px 20px 20px 30px;
   font-size: 20px;
   font-weight: 500;
   border-bottom: 1px solid #0E153A;
@@ -41,14 +41,14 @@
   justify-content: space-between;
 }
 
-.form-create-post-title img {
+.form-create-post-title img, .post-added-information-title img {
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
 
 @media (max-width: 540px) {
-  .form-create-post-title {
+  .form-create-post-title, .post-added-information-title {
     border-radius: 0;
   }
 }
@@ -260,4 +260,39 @@ textarea {
   border-radius: 50%;
   border: 1px solid #22D1EE;
   cursor: pointer;
+}
+
+.post-added-information {
+  max-width: 500px;
+}
+
+.post-added-information.flying-component {
+  top: -80vh;
+}
+
+@media (max-width: 540px) {
+  .post-added-information.flying-component {
+    top: -100vh;
+  }
+}
+
+.post-added-information-second {
+  padding: 0 30px;
+}
+
+.post-added-information-second h2 {
+  font-weight: 500;
+  font-size: 23px;
+  margin-bottom: 100px;
+}
+
+@media (max-width: 540px) {
+  .post-added-information {
+    height: 100vh;
+  }
+  .post-added-information-second h2 {
+    font-weight: 500;
+    font-size: 19px;
+    margin: 50px 0;
+  }
 }

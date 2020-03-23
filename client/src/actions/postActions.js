@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {GET_POSTS, ADD_POST, DELETE_POST, ITEMS_LOADING} from './types';
-//import {tokenConfig} from './authActions';
+import {tokenConfig} from './authActions';
 import {returnErrors} from './errorActions';
 
 export const getPosts = () => dispatch => {
@@ -18,7 +18,7 @@ export const getPosts = () => dispatch => {
 
 export const addPost = (post) => (dispatch, getState) => {
     axios
-    .post('/api.posts', post)
+    .post('/api/posts', post, tokenConfig(getState))
     .then(res => {
         dispatch({
             type:ADD_POST,

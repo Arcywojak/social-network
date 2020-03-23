@@ -15,10 +15,10 @@ class HomeLoggedIn extends Component {
         const {post} = this.props;
 
         return (
-            <div className="single-post">
+            <article className="single-post">
                 {post.title} <br/>
                 {post.content}
-            </div>
+            </article>
         )
     }
    
