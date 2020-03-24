@@ -31,21 +31,26 @@ class HomeLoggedIn extends Component {
     addTag = () => {
         let tags = document.querySelector('.add-tags');
 
-        console.log(this.state.tags);
-        let listOfTags = this.state.tags;
-        let isDuplicate = false;
-
-        listOfTags.forEach(tag => {
-            if(tags.value === tag) isDuplicate = true;
-        })
-
-        if(!isDuplicate){
-            listOfTags = [...listOfTags, tags.value]
-
-            this.setState({
-                tags: listOfTags
+        if(tags.value !=='' ){
+            let listOfTags = this.state.tags;
+            let isDuplicate = false;
+    
+            listOfTags.forEach(tag => {
+                if(tags.value === tag) isDuplicate = true;
             })
+    
+            if(!isDuplicate){
+                listOfTags = [...listOfTags, tags.value]
+    
+                this.setState({
+                    tags: listOfTags
+                })
+            }
+    
+            tags.value = '';
         }
+
+        
     }
     removeTag = e => {
         let listOfTags = this.state.tags;
@@ -76,6 +81,7 @@ class HomeLoggedIn extends Component {
         toggleCreateForm();
         togglePostAddedInformation(true);
        
+        //console.log(newPost)
 
         this.props.addPost(newPost);
     }
@@ -148,19 +154,7 @@ class HomeLoggedIn extends Component {
                                 </div>
                                 <div className="add-tags-block">
                                     <p>Add some tags:</p>
-                                    <select className="add-tags">
-                                        <option name="myThoughts">shrek</option>
-                                        <option name="myThoughts">my-thoughts</option>
-                                        <option name="myThoughts">business</option>
-                                        <option name="myThoughts">I-will-sell</option>
-                                        <option name="myThoughts">I-will-buy</option>
-                                        <option name="myThoughts">I-need-help</option>
-                                        <option name="myThoughts">jokes</option>
-                                        <option name="myThoughts">titbits</option>
-                                        <option name="myThoughts">politics</option>
-                                        <option name="myThoughts">learning</option>
-                                        <option name="myThoughts">ad</option>
-                                    </select>
+                                    <input type="text" className="bottom-line-input add-tags" placeholder="some-tag"/>
                                     <button type="button" onClick={this.addTag}>Add</button>
                                 </div>
                             </div>

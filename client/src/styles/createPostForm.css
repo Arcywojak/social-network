@@ -96,7 +96,7 @@
     grid-template-columns: 100%;
     width: 100%;
     border-radius: 0;
-    padding: 0 15px 0 30px;
+    padding: 15px 15px 5px 30px;
   }
 }
 
@@ -140,13 +140,18 @@
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
+  min-height: 70px;
 }
 
-.add-tags-block select {
+.add-tags-block .bottom-line-input {
   width: 127px;
-  height: 30px;
   margin: 0 27px;
   font-size: 17px;
+}
+
+.add-tags-block .bottom-line-input::placeholder {
+  color: #8d8d8d;
+  font-style: italic;
 }
 
 .add-tags-block button {
@@ -159,28 +164,28 @@
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color .2s ease-in, color .2s ease-in;
+  transition: background-color .4s ease-in, color .1s ease-in;
 }
 
 .add-tags-block button:hover {
-  background-color: #22D1EE;
-  color: #0E153A;
+  background-color: #3D5AF1;
+  color: #E2F3F5;
 }
 
 @media (max-width: 700px) {
-  .add-tags-block select {
+  .add-tags-block .bottom-line-input {
     margin: 0 20px 0 10px;
     font-size: 16px;
   }
 }
 
 @media (max-width: 540px) {
-  .add-tags-block select {
+  .add-tags-block .bottom-line-input {
     margin: 0 0 0 10px;
     width: 100px;
   }
   .add-tags-block button {
-    margin: 0 0 10px 15px;
+    margin: 0 0 0 15px;
   }
 }
 

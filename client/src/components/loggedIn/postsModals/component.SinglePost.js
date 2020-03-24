@@ -16,8 +16,35 @@ class HomeLoggedIn extends Component {
 
         return (
             <article className="single-post">
-                {post.title} <br/>
-                {post.content}
+                <div className="single-post-tag-list">
+                    {post.tags.map(tag => {
+                        return (
+                            <div className="single-post-tag">
+                                #{tag}
+                            </div>
+                        )
+                    })}
+                </div>
+                <div className="single-post-author">
+                    <div className="single-post-author-img">
+
+                    </div>
+                    <div className="single-post-author-text">
+                        <b>{post.user_name}</b> has written yesterday
+                    </div>
+                </div>
+
+                    <div className="single-post-line"></div>
+
+                <div className="single-post-title">
+                    {post.title}
+                </div>
+
+                    <div className="single-post-line"></div>
+
+                <div className="single-post-content">
+                    {post.content}
+                </div>
             </article>
         )
     }

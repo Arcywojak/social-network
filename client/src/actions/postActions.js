@@ -17,6 +17,9 @@ export const getPosts = () => dispatch => {
 }
 
 export const addPost = (post) => (dispatch, getState) => {
+
+
+    
     axios
     .post('/api/posts', post, tokenConfig(getState))
     .then(res => {

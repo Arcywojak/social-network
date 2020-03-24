@@ -26,7 +26,7 @@ router.post('/', auth, (req, res) => {
         user_image:req.body.user_image,
         title:req.body.title,
         content:req.body.content,
-        tags:req.body.type
+        tags:req.body.tags
     });
 
     newPost.save().then(post => res.json(post));
