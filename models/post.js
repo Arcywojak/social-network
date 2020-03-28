@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const date = new Date();
+
+const miliseconds = date.getTime();
+
 //Create schema
 const PostSchema = new Schema({
     user_id: {
@@ -28,8 +32,8 @@ const PostSchema = new Schema({
         default: undefined
     },
     add_date:{
-        type:Date,
-        default:Date.now
+        type: Number,
+        default: Date.now
     }
 });
 

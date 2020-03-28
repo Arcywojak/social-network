@@ -80,8 +80,6 @@ class HomeLoggedIn extends Component {
 
         toggleCreateForm();
         togglePostAddedInformation(true);
-       
-        //console.log(newPost)
 
         this.props.addPost(newPost);
     }
@@ -144,12 +142,12 @@ class HomeLoggedIn extends Component {
                             <div>
                                 <div className="input-and-label">
                                     <label htmlFor="title">Title</label>
-                                    <input id="title" type="text" placeholder="How are you?" required 
+                                    <input id="title" type="text" placeholder="How are you?" required value={this.state.title}
                                     onChange={(e) => {this.handleChange(e)}}/>
                                 </div>
                                 <div className="input-and-label">
                                     <label htmlFor="content">Content</label>
-                                    <textarea id="content" placeholder="¿uoy era woH" required
+                                    <textarea id="content" placeholder="¿uoy era woH" required value={this.state.content}
                                     onChange={(e) => {this.handleChange(e)}}></textarea>
                                 </div>
                                 <div className="add-tags-block">

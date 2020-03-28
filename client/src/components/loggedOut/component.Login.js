@@ -54,8 +54,6 @@ class Login extends Component {
             password: this.state.password1
         }
 
-        console.log(this.state.errors1)
-        
         this.props.login(user);
     }
 
