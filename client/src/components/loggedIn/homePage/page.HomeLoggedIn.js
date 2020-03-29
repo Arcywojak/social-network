@@ -16,11 +16,7 @@ class HomeLoggedIn extends Component {
         isAuthenticated: PropTypes.bool,
         user: PropTypes.object
     }
-    componentDidMount(){
-        if(document.querySelector('.overlay') !== null){    
-        toggleAuth(null, true);
-        }
-    }
+   
     
     render(){
 
@@ -37,7 +33,7 @@ class HomeLoggedIn extends Component {
                     <PostList />
                 </div>
 
-                <div className="overlay"  onClick={()=>removeAll()}></div>
+                
 
             </main>
         )
