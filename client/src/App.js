@@ -10,6 +10,7 @@ import UserProfile   from './components/loggedIn/page.UserProfile';
 import Rulebook from './components/general/page.Rulebook';
 import About from './components/general/page.About';
 import Contact from './components/general/page.Contact';
+import PostDetails from './components/loggedIn/postsModals/page.PostDetails';
 
 import './App.css';
 import './styles/ALL_STYLES.min.css';
@@ -32,6 +33,7 @@ class App extends Component {
           <Route path='/about'    component={About} />
           <Route path='/contact'  component={Contact} />
           <Route path='/user/:username'  component={UserProfile} />
+          <Route path='/posts/:id'  component={PostDetails} />
           <Footer/>
         </div>
       </Provider>

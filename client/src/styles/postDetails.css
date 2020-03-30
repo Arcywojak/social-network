@@ -63,10 +63,19 @@
   border-radius: 3px;
 }
 
+.single-post-title:hover {
+  background-color: #1c3eef;
+}
+
 .single-post-content {
   padding: 0 25px;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 22px;
+  color: #0E153A;
+}
+
+a.link-to-post {
+  text-decoration: none;
 }
 
 .info-about-reach {
@@ -83,9 +92,40 @@
   text-align: right;
 }
 
-.super-and-comment {
+.under-content-block {
+  margin-top: 40px;
+  font-size: 15px;
+}
+
+.react-on-post-block {
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: calc(33% - 2px) 3px calc(33% - 2px) 3px calc(33% - 2px);
   justify-content: center;
+  align-items: center;
   text-align: center;
+  font-weight: 500;
+}
+
+.react-on-post-block-vertical-line {
+  height: 30px;
+  background-color: lightgray;
+  width: 1px;
+  margin: 0 auto;
+}
+
+.react-on-post-block-text-and-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.react-on-post-block-text-and-img:hover {
+  background-color: #c4e6eb;
+}
+
+.react-on-post-block-img {
+  margin-right: 15px;
 }

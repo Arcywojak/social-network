@@ -2,6 +2,10 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import '../../../styles/postDetails.min.css';
+import starIcon from '../../../images/starIcon.svg';
+import commentIcon from '../../../images/CommentIcon.svg';
+import shareIcon from '../../../images/shareIcon.svg';
+import {Link} from 'react-router-dom';
 
 
 class HomeLoggedIn extends Component {
@@ -20,7 +24,6 @@ class HomeLoggedIn extends Component {
             const actualTime = Date.now();
             
             const timeInMinutes = (actualTime - post.add_date) / 60000;
-            console.log(Math.floor(timeInMinutes))
             if(timeInMinutes > 58){
                 const timeInHours = timeInMinutes / 60;
 
@@ -59,9 +62,11 @@ class HomeLoggedIn extends Component {
 
                     <div className="single-post-line"></div>
 
-                <div className="single-post-title">
-                    {post.title}
-                </div>
+                <Link to={`posts/${post._id}`} className="link-to-post">
+                    <div className="single-post-title">
+                        {post.title}
+                    </div>
+                </Link>
 
                     <div className="single-post-line"></div>
 
@@ -69,29 +74,53 @@ class HomeLoggedIn extends Component {
                     {post.content}
                 </div>
 
-                <div className="single-post-line"></div>
+              
 
                 <div className="under-content-block">
                     <div className="info-about-reach">
                         <span className="first">
-                            likes:32
+                            likes:  32
                         </span>
                         <span className="second">
-                           comments:16 
+                           comments:  16 
                         </span>
                         <span className="third">
-                           shares:3 
+                           shares:  3 
                         </span>
                     </div>
 
                     <div className="single-post-line"></div>
 
-                    <div className="super-and-comment">
-                        <div>
-                            Super!
+                    <div className="react-on-post-block">
+                        <div className="react-on-post-block-text-and-img">
+                            <div className="react-on-post-block-img">
+                                <img src={starIcon} alt="super" />
+                            </div>
+                            <div className="react-on-post-block-text">
+                                I like it!
+                            </div>
                         </div>
-                        <div>
-                            Comments
+
+                        <div className="react-on-post-block-vertical-line"></div>
+
+                        <div className="react-on-post-block-text-and-img">
+                            <div className="react-on-post-block-img">
+                                <img src={commentIcon} alt="comment" />
+                            </div>
+                            <div className="react-on-post-block-text">
+                                Comment it
+                            </div>
+                        </div>
+
+                        <div className="react-on-post-block-vertical-line"></div>
+
+                        <div className="react-on-post-block-text-and-img">
+                            <div className="react-on-post-block-img">
+                                <img src={shareIcon} alt="share" />
+                            </div>
+                            <div className="react-on-post-block-text">
+                                Share it
+                            </div>
                         </div>
                     </div>
                 </div>

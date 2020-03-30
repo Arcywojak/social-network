@@ -16,6 +16,19 @@ export const getPosts = () => dispatch => {
     .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 }
 
+export const getSinglePost = (id) => dispatch => {
+    dispatch(setItemsLoading() );
+    axios
+    .get(`/api/posts/${id}`)
+    .then(res => {
+        dispatch({
+            type:GET_POSTS,
+            payload:res.data
+        })
+    })
+    .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
+}
+
 export const addPost = (post) => (dispatch, getState) => {
 
 

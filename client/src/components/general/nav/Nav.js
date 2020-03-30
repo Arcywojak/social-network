@@ -31,7 +31,6 @@ class Nav extends Component  {
         });
     }
     componentDidUpdate(prevProps){
-        console.log(prevProps)
         let closeAuthModals = document.querySelector('.close-auth-modals');
 
         if(!this.props.auth.isLoading){
@@ -40,7 +39,7 @@ class Nav extends Component  {
         }
         if(this.props.auth.isAuthenticated && !prevProps.auth.isAuthenticated){     
             closeAuthModals.classList.add('none'); 
-            toggleOverlay();
+            removeAll();
         } else {
             closeAuthModals.classList.remove('none')
         }

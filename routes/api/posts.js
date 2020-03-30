@@ -15,6 +15,17 @@ router.get('/', (req, res) => {
     .then(items => res.json(items))
 })
 
+// @route   Get api/posts/id
+// @desc    Get ONE post
+// @access  Public
+
+router.get('/:id', (req, res) => {
+
+    Post.findById(req.params.id)
+    .sort({add_date:-1})
+    .then(items => res.json(items))
+})
+
 // @route   Post api/posts
 // @desc    Create post
 // @access  Private 
