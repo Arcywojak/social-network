@@ -6,10 +6,6 @@ import SinglePost from './component.SinglePost';
 
 class PostList extends Component {
 
-    state = {
-        posts : []
-    }
-
     static propTypes = {
         posts: PropTypes.array,
         getPosts: PropTypes.func
@@ -17,16 +13,6 @@ class PostList extends Component {
 
     componentDidMount(){
         this.props.getPosts();
-        console.log('I MOUNTED')
-    }
-    componentDidUpdate(prevProps){
-        //console.log(this.state.posts)
-        if(prevProps.posts.length === 0){
-          //  this.props.getPosts();
-            this.setState({
-                posts: this.props.posts
-            })
-        }
     }
 
     render(){

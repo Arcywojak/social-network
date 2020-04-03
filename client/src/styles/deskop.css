@@ -23,13 +23,17 @@
   align-items: center;
 }
 
-.nav-logo-deskop {
+.nav-logo-desktop {
   color: #E2F3F5;
   height: inherit;
   line-height: 85px;
   font-weight: 600;
   font-size: 65px;
   cursor: pointer;
+}
+
+a.logo {
+  text-decoration: none;
 }
 
 .nav-block {

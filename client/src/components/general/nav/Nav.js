@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Deskop from './Deskop';
+import Desktop from './Desktop';
 import Mobile from './Mobile';
 import {connect} from 'react-redux';
 import {loadUser} from '../../../actions/authActions';
@@ -48,7 +48,7 @@ class Nav extends Component  {
 
     render()  {
 
-        const header = this.state.mobile ? <Mobile/> : <Deskop/>
+        const header = this.state.mobile ? <Mobile/> : <Desktop/>
 
         return (
             <>

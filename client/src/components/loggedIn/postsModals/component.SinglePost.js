@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import '../../../styles/postDetails.min.css';
+import '../../../styles/singlePost.min.css';
 import starIcon from '../../../images/starIcon.svg';
 import commentIcon from '../../../images/CommentIcon.svg';
 import shareIcon from '../../../images/shareIcon.svg';
 import {Link} from 'react-router-dom';
+import {addTime} from '../../../functions/functions';
 
 
 class HomeLoggedIn extends Component {
@@ -17,28 +18,8 @@ class HomeLoggedIn extends Component {
     
     
     render(){
+
         const {post} = this.props;
-       
-        const AddTime = () => {
-
-            const actualTime = Date.now();
-            
-            const timeInMinutes = (actualTime - post.add_date) / 60000;
-            if(timeInMinutes > 58){
-                const timeInHours = timeInMinutes / 60;
-
-                if(timeInHours > 22){
-                    
-                    return `${Math.floor(timeInHours/24)} days ago`
-                } else {
-                    return `${Math.floor(timeInHours)} hours ago`
-                }
-
-            } else {
-                return `${Math.floor(timeInMinutes)} minutes ago`
-            }
-
-        }
 
         return (
             <article className="single-post">
@@ -56,7 +37,7 @@ class HomeLoggedIn extends Component {
                         <img src={require(`../../../images/avatars/${post.user_image}`)} alt="me" />
                     </div>
                     <div className="single-post-author-text">
-                        <b>{post.user_name}</b> has written {AddTime()}
+                        <b>{post.user_name}</b> has written {addTime(post.add_date)}
                     </div>
                 </div>
 

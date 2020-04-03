@@ -22,7 +22,7 @@ box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
     justify-content: space-around;
     align-items: center;
 }
-.nav-logo-deskop{
+.nav-logo-desktop{
     color:$very-light-blue;
     height: inherit;
     line-height: 85px;
@@ -30,6 +30,11 @@ box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
     font-size: 65px;
     cursor: pointer;
 }
+
+a.logo{ 
+        text-decoration: none;
+}
+
 .nav-block{
     margin: 0 0 0 auto;
     height:100%;

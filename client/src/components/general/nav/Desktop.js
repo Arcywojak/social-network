@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {logout} from '../../../actions/authActions'
 import '../../../styles/deskop.css'
 import {toggleAuth} from '../../../functions/functions';
 
-class Deskop extends Component {
+class Desktop extends Component {
 
     static propTypes = {
         isAuthenticated: PropTypes.bool,
@@ -56,7 +56,7 @@ class Deskop extends Component {
         <>
         <header className="deskop-header">
             <div className="deskop-nav">
-                <div className="nav-logo-deskop">SM</div>
+                <Link className="logo" to="/"><div className="nav-logo-desktop">SM</div></Link>
                 <nav className="nav-block">
                     
                         {navOptions}
@@ -77,4 +77,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {logout})(Deskop);
+export default connect(mapStateToProps, {logout})(Desktop);

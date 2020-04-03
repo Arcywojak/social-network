@@ -54,7 +54,7 @@ export const toggleAuth = (block='', close=false) => {
 
 export const toggleCreateForm = (show=false) => {
 
-    if(document.querySelector('.form-create-post')){
+    if(document.querySelector('.form-create-post')){    
 
         let form = document.querySelector('.form-create-post')
 
@@ -90,4 +90,25 @@ export const removeAll = () => {
     togglePostAddedInformation();
     toggleCreateForm();
     toggleOverlay();
+}
+
+export const addTime = (givenTimeInMiliseconds) => {
+
+    const actualTime = Date.now();
+    
+    const timeInMinutes = (actualTime - givenTimeInMiliseconds) / 60000;
+    if(timeInMinutes > 58){
+        const timeInHours = timeInMinutes / 60;
+
+        if(timeInHours > 22){
+            
+            return `${Math.floor(timeInHours/24)} days ago`
+        } else {
+            return `${Math.floor(timeInHours)} hours ago`
+        }
+
+    } else {
+        return `${Math.floor(timeInMinutes)} minutes ago`
+    }
+
 }
