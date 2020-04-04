@@ -1,3 +1,8 @@
+main.post-details {
+  background-color: #95defa;
+  background-image: none;
+}
+
 .post-details.container {
   margin: 0;
 }
@@ -15,7 +20,7 @@
 }
 
 .post-details-wrapper {
-  background-color: #b4bffa;
+  background-color: #22D1EE;
 }
 
 .post-details-presence {
@@ -61,8 +66,20 @@
   height: 50px;
   padding-left: 20vw;
   color: #0E153A;
+  border-bottom: 1px solid #0E153A;
 }
 
 .post-details-author-ad h2 {
   font-weight: 500;
+}
+
+.post-details-content-and-sidebar {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  padding: 0 20vw;
+}
+
+.post-details-content {
+  padding: 6vw 20px 40px;
+  font-size: 20px;
 }

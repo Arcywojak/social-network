@@ -102,13 +102,13 @@ export const addTime = (givenTimeInMiliseconds) => {
 
         if(timeInHours > 22){
             
-            return `${Math.floor(timeInHours/24)} days ago`
+            return `${Math.ceil(timeInHours/24)} days ago`
         } else {
-            return `${Math.floor(timeInHours)} hours ago`
+            return `${Math.ceil(timeInHours)} hours ago`
         }
 
     } else {
-        return `${Math.floor(timeInMinutes)} minutes ago`
+        return `${Math.ceil(timeInMinutes)} minutes ago`
     }
 
 }

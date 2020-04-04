@@ -26,6 +26,13 @@ class HomeLoggedIn extends Component {
         this.setState({
             [e.target.id]:e.target.value
         })
+
+        //console.log(e.target.value)
+
+        console.log(e.target.value.charAt(e.target.value.length-1))
+        if(e.target.value.charAt(e.target.value.length-1) === '\n'){
+            console.log("aaasdasdas")
+        }
     }
 
     addTag = () => {

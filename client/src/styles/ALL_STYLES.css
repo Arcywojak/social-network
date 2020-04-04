@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-body {
+main {
   margin: 0;
   background-image: linear-gradient(177.5deg, #95defa 8.4%, #006dd0 105.1%);
   font-family: 'Montserrat', sans-serif;
@@ -27,6 +27,9 @@ body {
   background-color: #3D5AF1;
   padding: 0 4vw;
   z-index: 2;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .deskop-nav {
@@ -38,13 +41,17 @@ body {
   align-items: center;
 }
 
-.nav-logo-deskop {
+.nav-logo-desktop {
   color: #E2F3F5;
   height: inherit;
   line-height: 85px;
   font-weight: 600;
   font-size: 65px;
   cursor: pointer;
+}
+
+a.logo {
+  text-decoration: none;
 }
 
 .nav-block {
@@ -88,6 +95,7 @@ body {
   padding: 0 10px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .nav-link a:hover {
@@ -99,7 +107,7 @@ body {
 }
 
 .nav-link a.active {
-  text-decoration: underline 2px;
+  text-decoration: underline;
 }
 
 .mobile-header {
@@ -110,6 +118,9 @@ body {
   padding: 0 5vw;
   z-index: 2;
   border-bottom: 1px solid #0E153A;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .mobile-filler {
@@ -205,9 +216,6 @@ body {
 
 .navigation.active {
   transform: translateX(300px);
-  -webkit-box-shadow: 300px 0px 10px 0px rgba(0, 0, 0, 0.12);
-  -moz-box-shadow: 300px 0px 10px 0px rgba(0, 0, 0, 0.12);
-  box-shadow: 300px 0px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
 .navigation-list {
@@ -221,9 +229,17 @@ body {
 }
 
 .navigation-list a {
+  cursor: pointer;
   text-decoration: none;
   color: #E2F3F5;
   font-size: 1.7rem;
+}
+
+.navigation-item {
+  text-align: center;
+  border-bottom: 2px solid #506af2;
+  padding-bottom: 8px;
+  width: 260px;
 }
 
 .footer {
@@ -238,6 +254,18 @@ body {
 
 .footer p {
   margin: 0;
+}
+
+.container.home-logged-in {
+  margin: 0;
+}
+
+.inner-container {
+  padding: 20px;
+  border-left: 1px solid #0E153A;
+  border-right: 1px solid #0E153A;
+  background: #96e3ff;
+  background: linear-gradient(94deg, #96e3ff 0%, #aae6ff 100%);
 }
 
 .grid-block {
@@ -281,7 +309,7 @@ body {
   height: 45px;
   font-size: 24px;
   font-family: sans-serif roboto;
-  transition: background-color .5s ease-in-out, color .1s ease-in-out;
+  transition: background-color .4s ease-in-out, color .1s ease-in-out;
   cursor: pointer;
 }
 
@@ -395,7 +423,7 @@ body {
   height: 100vh;
   background-color: black;
   opacity: .5;
-  z-index: 1;
+  z-index: 2;
 }
 
 @keyframes fadeInOverlay {
@@ -403,13 +431,13 @@ body {
     opacity: 0;
   }
   to {
-    opacity: 0.5;
+    opacity: .5;
   }
 }
 
 @keyframes reverseFadeInOverlay {
   from {
-    opacity: 0.5;
+    opacity: .5;
   }
   to {
     opacity: 0;
@@ -425,7 +453,7 @@ body {
 }
 
 .reverse-anim-fade-in-overlay {
-  opacity: 0.5;
+  opacity: .5;
   animation-name: reverseFadeInOverlay;
   animation-duration: .5s;
   animation-delay: .1s;

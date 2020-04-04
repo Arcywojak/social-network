@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import '../../../styles/singlePost.min.css';
 import starIcon from '../../../images/starIcon.svg';
 import commentIcon from '../../../images/CommentIcon.svg';
+import SingleComment from './component.SingleComment';
 import shareIcon from '../../../images/shareIcon.svg';
 import {Link} from 'react-router-dom';
 import {addTime} from '../../../functions/functions';
@@ -13,6 +14,14 @@ class HomeLoggedIn extends Component {
 
     static propTypes = {
         isAuthenticated: PropTypes.bool
+    }
+
+    state = {
+        noYouDoNot:false,
+    }
+
+    noYouDoNot = () => {
+
     }
 
     
@@ -60,13 +69,13 @@ class HomeLoggedIn extends Component {
                 <div className="under-content-block">
                     <div className="info-about-reach">
                         <span className="first">
-                            likes:  32
+                            likes:  {Math.round(Math.random()*(50 - 5 + 1) + 5)}
                         </span>
                         <span className="second">
-                           comments:  16 
+                           comments:  {Math.round(Math.random()*(30 - 0 + 1))}
                         </span>
                         <span className="third">
-                           shares:  3 
+                           shares:  {Math.round(Math.random()*(30 - 0 + 1))} 
                         </span>
                     </div>
 
@@ -102,6 +111,16 @@ class HomeLoggedIn extends Component {
                             <div className="react-on-post-block-text">
                                 Share it
                             </div>
+                        </div>
+                    </div>
+                    <div className="comments-block">
+                        
+                        <SingleComment />
+                        <SingleComment />
+                        <SingleComment />
+
+                        <div className="comment-it">
+
                         </div>
                     </div>
                 </div>

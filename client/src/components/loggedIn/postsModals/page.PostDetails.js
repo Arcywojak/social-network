@@ -11,6 +11,7 @@ class PostDetails extends Component {
         if(this.props.post === undefined){
             this.props.getPosts();
         }
+        
     }
 
     static propTypes = {
@@ -28,6 +29,7 @@ class PostDetails extends Component {
         <img src={require('../../../images/avatars/NoImg.png')} />
      </>
        )
+
 
         return (
             <main className="container post-details">
@@ -71,7 +73,7 @@ class PostDetails extends Component {
                 </div>
                 <section className="post-details-content-and-sidebar">
                     <article className="post-details-content">
-                            {this.props?.post?.content}
+                           <pre> {this.props?.post?.content} </pre>
                     </article>
                     <aside className="post-details-sidebar">
                         

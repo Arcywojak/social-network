@@ -1,9 +1,17 @@
 @import './main-colors.scss';
 
+
+main.post-details{
+        background-color: rgba(149,222,250,1);
+        background-image: none;
+    
+}
 .post-details{
     &.container{
         margin:0;
+       
     }
+    
     
     &.single-post-tag-list{
         margin-top: 40px;
@@ -20,7 +28,7 @@
 
 .post-details{
     &-wrapper{
-        background-color: lighten($blue, 25%);
+        background-color: $light-blue;
     }
     &-presence{
         background-color: $dark-blue;
@@ -66,16 +74,20 @@
         height:50px;
         padding-left: 20vw;
         color:$dark-blue;
+        border-bottom: 1px solid $dark-blue;
         
         h2{
             font-weight: 500;
         }
     }
     &-content-and-sidebar{
-
+        display: grid;
+        grid-template-columns: 60% 40%;
+        padding:0 20vw;
     }
     &-content{
-
+        padding:6vw 20px 40px;
+        font-size: 20px;
     }
     &-sidebar{
 
