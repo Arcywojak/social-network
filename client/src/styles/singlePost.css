@@ -134,6 +134,61 @@ a.link-to-post {
   position: relative;
 }
 
+.comment-it {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.comment-it-user-img img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.comment-it-user-input {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  width: 100%;
+}
+
+.comment-it-input {
+  width: 100%;
+  height: 40px;
+  border-radius: 20px 0 0 20px;
+  border: none;
+  border: 1px solid #0E153A;
+  border-right: none;
+  background-color: #bce3e8;
+  padding: 5px 14px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.comment-it-input:focus {
+  outline-style: none;
+  background-color: #a9dbe1;
+}
+
+.add-comment-btn {
+  background-color: #22D1EE;
+  border: none;
+  border: 1px solid #0E153A;
+  border-right: none;
+  border-radius: 0 20px 20px 0;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color .4s ease-in-out, color .1s ease-in-out;
+}
+
+.add-comment-btn:hover {
+  background-color: #3D5AF1;
+  color: #E2F3F5;
+}
+
 @keyframes FadingNoYouDoNot {
   0% {
     opacity: 0;

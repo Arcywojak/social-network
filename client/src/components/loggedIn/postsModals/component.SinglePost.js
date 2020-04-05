@@ -13,7 +13,7 @@ import {addTime} from '../../../functions/functions';
 class HomeLoggedIn extends Component {
 
     static propTypes = {
-        isAuthenticated: PropTypes.bool
+        user: PropTypes.object
     }
 
     state = {
@@ -135,13 +135,24 @@ class HomeLoggedIn extends Component {
                         </div>
                     </div>
                     <div className="comments-block">
-                        
+                    
+                    <div className="comments-list">
+
                         <SingleComment />
                         <SingleComment />
                         <SingleComment />
+
+                    </div>
 
                         <div className="comment-it">
-
+                            <div className="comment-it-user-img">
+                                <img src={require(`../../../images/avatars/${this.props.user.image}`)} />
+                            </div>
+                            <form className="comment-it-user-input">
+                                <input className="comment-it-input" placeholder="Write a comment" required/>
+                                <button className="add-comment-btn" onClick={this.addComment}>Enter</button>
+                            </form>
+                            
                         </div>
                     </div>
                 </div>
@@ -153,7 +164,7 @@ class HomeLoggedIn extends Component {
 
 const mapStateToProps = state => {
     return {
-        isAuthenticated: state.auth.isAuthenticated
+        user: state.auth.user
     }
 }
 
