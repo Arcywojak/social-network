@@ -1,16 +1,16 @@
 ///// global styles /////
 *, *::after, *::before {
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
   }
  main{
     margin: 0;
     background-image: linear-gradient( 177.5deg,  rgba(149,222,250,1) 8.4%, rgba(0,109,208,1) 105.1% );
-    font-family: 'Montserrat', sans-serif;
+    
   }
   @media(min-width:801px){
     .container{
-        min-height:calc(100vh - 211px);
-        margin: 20px 0;
+        min-height:calc(100vh - 169px);
         overflow: auto;
     }
 }

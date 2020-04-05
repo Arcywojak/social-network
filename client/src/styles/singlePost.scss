@@ -126,5 +126,79 @@ a.link-to-post{
     &-img{
         margin-right: 15px;
     }
+    &-text{
+        position: relative;
+    }
 
+}
+
+@keyframes FadingNoYouDoNot {
+    0%{
+      opacity: 0;
+    }
+    15%{
+      opacity: 1;
+    }
+    85%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
+
+.no-you-do-not{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:200px;
+    height:50px;
+    border-radius: 15px;
+    background-color: $light-blue;
+    border:2px solid $dark-blue;
+    top:-78px;
+
+    animation-name: FadingNoYouDoNot;
+    animation-duration: 2.7s;
+    animation-fill-mode: forwards;
+
+    .triangle{
+        content:'';
+        border-top: 0 solid $light-blue;
+        border-left: 0 solid $light-blue;; 
+        border-bottom: 0 solid transparent;
+        border-right: 0 solid transparent;
+        width:10px;
+        border-top-width: 15px;
+        border-bottom-width: 15px;
+        border-right-width:15px;
+        border-left-width:15px;
+ 
+        position: absolute;
+        bottom:-20px;
+        left:20px;
+
+        &::before{
+            
+            content:'';
+            width:2px;
+            background-color: $dark-blue;
+            position: absolute;
+            height:21px;
+            left:-15px;
+            top:-5px;
+        }
+        &::after{
+            
+            content:'';
+            width:2px;
+            background-color: $dark-blue;
+            position: absolute;
+            height:27px;
+            left:-5px;
+            top:-8px;
+            transform:rotate(45deg);
+        }
+    }
 }

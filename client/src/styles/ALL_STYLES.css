@@ -1,17 +1,16 @@
 *, *::after, *::before {
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 main {
   margin: 0;
   background-image: linear-gradient(177.5deg, #95defa 8.4%, #006dd0 105.1%);
-  font-family: 'Montserrat', sans-serif;
 }
 
 @media (min-width: 801px) {
   .container {
-    min-height: calc(100vh - 211px);
-    margin: 20px 0;
+    min-height: calc(100vh - 169px);
     overflow: auto;
   }
 }

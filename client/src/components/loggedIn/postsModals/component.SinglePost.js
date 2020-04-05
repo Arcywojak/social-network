@@ -21,7 +21,19 @@ class HomeLoggedIn extends Component {
     }
 
     noYouDoNot = () => {
+        if(!this.state.noYouDoNot){
+            this.setState({
+                noYouDoNot:true
+            })
 
+            setTimeout(() => {
+                if(this.state.noYouDoNot){
+                    this.setState({
+                        noYouDoNot:false
+                    })
+                }
+            },3000)
+        }
     }
 
     
@@ -29,6 +41,14 @@ class HomeLoggedIn extends Component {
     render(){
 
         const {post} = this.props;
+
+        const noYouDoNotBlock = this.state.noYouDoNot ? (
+            <div className="no-you-do-not">
+                No, you do not...
+
+                <div className="triangle"></div>
+            </div>
+        ) : (null)
 
         return (
             <article className="single-post">
@@ -86,8 +106,9 @@ class HomeLoggedIn extends Component {
                             <div className="react-on-post-block-img">
                                 <img src={starIcon} alt="super" />
                             </div>
-                            <div className="react-on-post-block-text">
+                            <div className="react-on-post-block-text" onClick={this.noYouDoNot}>
                                 I like it!
+                                {noYouDoNotBlock}
                             </div>
                         </div>
 
@@ -98,7 +119,7 @@ class HomeLoggedIn extends Component {
                                 <img src={commentIcon} alt="comment" />
                             </div>
                             <div className="react-on-post-block-text">
-                                Comment it
+                                See comments
                             </div>
                         </div>
 
