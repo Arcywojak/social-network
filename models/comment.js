@@ -20,7 +20,7 @@ const CommentSchema = new Schema({
         require:true
     },
     date:{
-        type:Date,
+        type:Number,
         default:Date.now
     }
 });

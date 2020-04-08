@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
+import {addComment} from '../../../actions/commentActions';
 import PropTypes from 'prop-types';
 import '../../../styles/singlePost.min.css';
 import starIcon from '../../../images/starIcon.svg';
@@ -13,7 +14,8 @@ import {addTime} from '../../../functions/functions';
 class HomeLoggedIn extends Component {
 
     static propTypes = {
-        user: PropTypes.object
+        user: PropTypes.object,
+        addComment: PropTypes.func
     }
 
     state = {
@@ -134,6 +136,9 @@ class HomeLoggedIn extends Component {
                             </div>
                         </div>
                     </div>
+
+                    <div className="single-post-line"></div>
+
                     <div className="comments-block">
                     
                     <div className="comments-list">
@@ -168,4 +173,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(HomeLoggedIn);
+export default connect(mapStateToProps, {addComment})(HomeLoggedIn);

@@ -256,3 +256,48 @@ a.link-to-post {
   top: -8px;
   transform: rotate(45deg);
 }
+
+.single-comment {
+  display: flex;
+  align-items: start;
+}
+
+.single-comment-wrapper {
+  margin: 20px 0;
+}
+
+.single-comment-user-img img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.single-comment-text {
+  border-radius: 25px;
+  background-color: #bce3e8;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.single-comment-text b {
+  margin-right: 10px;
+}
+
+.react-to-comment {
+  margin-top: 5px;
+  padding-left: 70px;
+}
+
+.span-margin {
+  margin: 0 20px;
+}
+
+.span-hover {
+  cursor: pointer;
+}
+
+.span-hover:hover {
+  text-decoration: underline;
+}

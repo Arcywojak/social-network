@@ -258,3 +258,46 @@ a.link-to-post{
         }
     }
 }
+.single-comment{
+    display: flex;
+    align-items: start;
+    
+
+    &-wrapper{
+        margin: 20px 0;
+    }
+    &-user-img{
+        img{
+            width:45px;
+            height:45px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+    }
+    &-text{
+        border-radius: 25px;
+        background-color: darken($very-light-blue,10%);
+        padding: 15px;
+        font-size: 16px;
+        font-weight: 400;
+
+        b{
+            margin-right: 10px;
+        }
+       
+    }
+}
+.react-to-comment{
+    margin-top: 5px;
+    padding-left: 70px;
+}
+.span-margin{
+    margin: 0 20px;
+}
+.span-hover{
+    cursor: pointer;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
