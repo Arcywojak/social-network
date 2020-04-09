@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {addTime} from '../../../functions/functions';
 
 class SingleComment extends Component {
     render() {
@@ -6,11 +7,11 @@ class SingleComment extends Component {
             <div className="single-comment-wrapper">
                 <div className="single-comment">
                     <div className="single-comment-user-img">
-                        <img src={require('../../../images/avatars/NoImg.png')} alt="user"/>
+                        <img src={require(`../../../images/avatars/${this.props.comment.user_image}`)} alt="user"/>
                     </div>
                     <div className="single-comment-text">
-                        <b>MACKO123</b>
-                        loremi psym asdas sit amet hahahalo ho emi psym asdas sit amet hahahalo hoemi psym asdas sit amet hahahalo ho
+                        <b>{this.props.comment.user_name}</b>
+                        {this.props.comment.content}
                     </div>
                 </div>
                 <div className="react-to-comment">
@@ -18,7 +19,7 @@ class SingleComment extends Component {
                         I like it!
                     </span>
                     <span className="span-margin">
-                        3 hours ago
+                        {addTime(this.props.comment.date)}
                     </span>
                     <span className="span-hover">
                         report comment

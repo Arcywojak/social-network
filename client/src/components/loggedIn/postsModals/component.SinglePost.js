@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
-import {addComment} from '../../../actions/commentActions';
+import {addComment, getComments} from '../../../actions/commentActions';
 import PropTypes from 'prop-types';
 import '../../../styles/singlePost.min.css';
 import starIcon from '../../../images/starIcon.svg';
@@ -15,11 +15,13 @@ class HomeLoggedIn extends Component {
 
     static propTypes = {
         user: PropTypes.object,
-        addComment: PropTypes.func
+        addComment: PropTypes.func,
+        comments: PropTypes.array
     }
 
     state = {
         noYouDoNot:false,
+        message:''
     }
 
     noYouDoNot = () => {
@@ -38,6 +40,35 @@ class HomeLoggedIn extends Component {
         }
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        const {message} = this.state;
+
+        if(message.length > 0){
+            const {_id} = this.props.post
+            
+            const newComment = {
+                post_id : _id,
+                user_name : this.props.user.name,
+                user_image : this.props.user.image,
+                content : message
+            }
+            this.setState({
+                message: ''
+            })
+            this.props.addComment(newComment);
+        }
+
+        
+
+    }
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
     
     
     render(){
@@ -51,6 +82,15 @@ class HomeLoggedIn extends Component {
                 <div className="triangle"></div>
             </div>
         ) : (null)
+
+        const listOfComments = this.props?.comments?.length ? (
+            this.props.comments.map(com => {
+                return (
+                    <>
+                    <SingleComment comment={com} />
+                    </>
+                )}
+        )) : (null)
 
         return (
             <article className="single-post">
@@ -143,9 +183,7 @@ class HomeLoggedIn extends Component {
                     
                     <div className="comments-list">
 
-                        <SingleComment />
-                        <SingleComment />
-                        <SingleComment />
+                        {listOfComments}
 
                     </div>
 
@@ -154,8 +192,8 @@ class HomeLoggedIn extends Component {
                                 <img src={require(`../../../images/avatars/${this.props.user.image}`)} />
                             </div>
                             <form className="comment-it-user-input">
-                                <input className="comment-it-input" placeholder="Write a comment" required/>
-                                <button className="add-comment-btn" onClick={this.addComment}>Enter</button>
+                                <input value={this.state.message} name="message" className="comment-it-input" onChange={(e) => {this.handleChange(e)}} placeholder="Write a comment" required/>
+                                <button className="add-comment-btn" onClick={this.handleSubmit}>Enter</button>
                             </form>
                             
                         </div>
@@ -167,10 +205,18 @@ class HomeLoggedIn extends Component {
    
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state,ownProps) => {
+
+        let filteredComments = [];
+
+   
+        filteredComments = state.comment.comments.filter(com => com?.post_id === ownProps.post._id);
+    
+    
     return {
-        user: state.auth.user
+        user: state.auth.user,
+        comments:filteredComments
     }
 }
 
-export default connect(mapStateToProps, {addComment})(HomeLoggedIn);
+export default connect(mapStateToProps, {addComment, getComments})(HomeLoggedIn);

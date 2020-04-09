@@ -52,6 +52,12 @@
     font-family: sans-serif roboto;
     transition: background-color .4s ease-in-out, color .1s ease-in-out;
     cursor: pointer;
+
+    &:active{
+        font-weight: 700;
+    }
+
+
     &.blue{
         background-color: $blue;
         color: $very-light-blue;

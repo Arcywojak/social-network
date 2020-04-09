@@ -15,9 +15,19 @@ router.get('/:id', auth, (req, res) => {
     .then(comment => res.json(comment))
 })
 
+// @route   Get api/comment
+// @desc    Get ALL comments
+// @access  Public
+
+router.get('/', auth, (req, res) => {
+    Comment.find()
+    .sort({date:-1})
+    .then(comment => res.json(comment))
+})
+
 // @route   Post api/comments
 // @desc    Create comment
-// @access  Private //NOT DONE
+// @access  Private
 
 router.post('/', auth, (req, res) => {
     const newComment = new Comment({

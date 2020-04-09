@@ -181,6 +181,10 @@ a.link-to-post{
     font-size: 18px;
     cursor: pointer;
     transition: background-color .4s ease-in-out, color .1s ease-in-out;
+
+    &:active{
+        font-weight: 700;
+    }
     
     &:hover{
         background-color: $blue;

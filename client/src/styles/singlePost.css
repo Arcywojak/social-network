@@ -184,6 +184,10 @@ a.link-to-post {
   transition: background-color .4s ease-in-out, color .1s ease-in-out;
 }
 
+.add-comment-btn:active {
+  font-weight: 700;
+}
+
 .add-comment-btn:hover {
   background-color: #3D5AF1;
   color: #E2F3F5;
