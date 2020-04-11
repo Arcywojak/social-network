@@ -30,6 +30,15 @@ main.post-details {
   border-bottom-right-radius: 220px;
 }
 
+.post-details-presence a {
+  text-decoration: none;
+  color: #22D1EE;
+}
+
+.post-details-presence a:hover {
+  color: #E2F3F5;
+}
+
 .post-details-presence-inner {
   width: 100%;
   max-width: 800px;
@@ -75,11 +84,74 @@ main.post-details {
 
 .post-details-content-and-sidebar {
   display: grid;
-  grid-template-columns: 60% 40%;
-  padding: 0 20vw;
+  grid-template-columns: 70% 30%;
+  padding: 4vw 20vw;
 }
 
 .post-details-content {
-  padding: 6vw 20px 40px;
+  padding: 0 20px;
   font-size: 20px;
+  font-weight: 500;
+}
+
+.post-details-sidebar {
+  position: relative;
+}
+
+.post-details-advert-block {
+  font-size: 14px;
+  background-color: #3D5AF1;
+  border: 6px solid #0E153A;
+  color: #E2F3F5;
+  padding: 15px;
+  height: 550px;
+  width: 340px;
+}
+
+.post-details-comment-block {
+  width: 100%;
+  padding: 40px 0 40px 20vw;
+  background-color: #3D5AF1;
+}
+
+.post-details-comment-block-inner {
+  max-width: 650px;
+}
+
+.post-details-comment-block h1 {
+  color: #E2F3F5;
+  font-size: 40px;
+  margin-top: 0;
+}
+
+.post-details-comment-list {
+  margin-top: 70px;
+}
+
+.post-details-comment-list span {
+  color: #E2F3F5;
+}
+
+pre {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.no-comments {
+  color: #E2F3F5;
+}
+
+.flying-axe {
+  position: fixed;
+  top: 120px;
+  right: 20%;
+}
+
+.flying-axe-stay-down {
+  position: absolute;
+  bottom: 0;
 }

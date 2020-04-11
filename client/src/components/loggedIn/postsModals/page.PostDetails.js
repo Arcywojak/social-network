@@ -1,9 +1,13 @@
+// TO DO THIS PAGE I DREW INSPIRATION FROM CSS TRICKS
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {getPosts} from '../../../actions/postActions';
 import PropTypes from 'prop-types';
+import {getCommentsAll, addComment} from '../../../actions/commentActions';
 import {addTime} from '../../../functions/functions';
 import '../../../styles/postDetails.min.css'
+import SingleComment from './component.SingleComment';
+import Axe from '../../../images/axe.svg';
 
 class PostDetails extends Component {
 
@@ -11,14 +15,124 @@ class PostDetails extends Component {
         if(this.props.post === undefined){
             this.props.getPosts();
         }
+        if(this.props.comments.length === 0){
+            this.props.getCommentsAll();
+        }
+
+        document.addEventListener('scroll', () => {
+            let axeBlock = document.querySelector('.axe');
+            let axeParentBlock = document.querySelector('.axe-parent');
+
+            if(   
+                  (
+                    axeBlock.clientHeight - window.scrollY
+                  ) < -30 
+                    &&
+                  ( 
+                    axeParentBlock.offsetTop - window.scrollY - 120 + 
+                    axeParentBlock.clientHeight - axeBlock.clientHeight
+                  ) > 0
+              ){
+
+                axeBlock.classList.add('flying-axe');
+                axeBlock.classList.remove('flying-axe-stay-down');
+                
+            } else if(
+                 (
+                  axeBlock.clientHeight - window.scrollY
+                 ) > -29){
+
+                axeBlock.classList.remove('flying-axe');
+                axeBlock.classList.remove('flying-axe-stay-down');
+
+            } else if(
+                (
+                  axeParentBlock.offsetTop - window.scrollY - 120 + 
+                  axeParentBlock.clientHeight - axeBlock.clientHeight
+                ) < 0
+                ) {
+                    axeBlock.classList.remove('flying-axe');
+                    axeBlock.classList.add('flying-axe-stay-down'); 
+                }
+        })
         
     }
 
+    state={
+        message:''
+    }
+
     static propTypes = {
-        getPosts: PropTypes.func
+        getPosts: PropTypes.func,
+        getCommentsAll: PropTypes.func,
+        addComment: PropTypes.func
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        const {message} = this.state;
+
+        if(message.length > 0){
+            const {_id} = this.props.post
+            
+            const newComment = {
+                post_id : _id,
+                user_name : this.props.user.name,
+                user_image : this.props.user.image,
+                content : message
+            }
+            this.setState({
+                message: ''
+            })
+            this.props.addComment(newComment);
+        }
+
+        
+
+    }
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        const {message} = this.state;
+
+        if(message.length > 0){
+            const {_id} = this.props.post
+            
+            const newComment = {
+                post_id : _id,
+                user_name : this.props.user.name,
+                user_image : this.props.user.image,
+                content : message
+            }
+            this.setState({
+                message: ''
+            })
+            this.props.addComment(newComment);
+        }    
+
     }
 
     render(){   
+
+        const listOfComments = this.props?.comments?.length ? (
+            this.props.comments.map(com => {
+                return (
+                    <>
+                    <SingleComment comment={com} />
+                    </>
+                )}
+        )) : (
+        <div className="no-comments">   
+            <h2>No comments yet, be first.</h2>
+        </div>
+        )
         
        const image = this.props?.post?.user_image !==undefined ? (
            <>
@@ -53,7 +167,7 @@ class PostDetails extends Component {
                                 </div>
                                 <div className="post-details-presence-inner-author-text">
                                     5 comments <br/>
-                                    <b>Have a chat</b>
+                                    <a href="#comments"><b>Have a chat ➡️</b></a>
                                 </div>
                             </div>
                             <div className="single-post-tag-list post-details">
@@ -75,9 +189,34 @@ class PostDetails extends Component {
                     <article className="post-details-content">
                            <pre> {this.props?.post?.content} </pre>
                     </article>
-                    <aside className="post-details-sidebar">
-                        
+                    <aside className="post-details-sidebar axe-parent">
+                        <div className="post-details-advert-block axe">
+                            <h2>
+                             THERE SHOULD BE SOME ADVERT BUT I WANT TO SHOW YOU THIS AXE
+                            </h2>
+                            <img src={Axe} alt="axe" />
+                        </div>
                     </aside>
+                </section>
+                <section className="post-details-comment-block">
+                    <div className="post-details-comment-block-inner">    
+                        <h1>Leave feedback</h1>
+
+                        <div className="comment-it" id="comments">
+                            <div className="comment-it-user-img">
+                                {image}
+                            </div>
+                            <form className="comment-it-user-input">
+                                <input value={this.state.message} name="message" className="comment-it-input" onChange={(e) => {this.handleChange(e)}} placeholder="Write a comment" required/>
+                                <button className="add-comment-btn" onClick={this.handleSubmit}>Enter</button>
+                            </form> 
+                        </div>
+                        <div className="post-details-comment-list">
+
+                            {listOfComments}
+
+                        </div>
+                    </div>
                 </section>
             </main>
         )
@@ -87,10 +226,15 @@ class PostDetails extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     const id = ownProps.location.pathname.slice(7);
+    let actualPost = state?.posts?.posts.find(post => post?._id === id)
+    let filteredComments = [];
+        filteredComments = state.comment.comments.filter(com => com?.post_id === actualPost?._id);
    
     return {
-        post: state.posts.posts.find(post => post._id === id)
+        user: state.auth.user,
+        post: actualPost,
+        comments:filteredComments
     }
 }
 
-export default connect(mapStateToProps, {getPosts})(PostDetails);
+export default connect(mapStateToProps, {getPosts, getCommentsAll, addComment})(PostDetails);

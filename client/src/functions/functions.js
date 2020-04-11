@@ -101,14 +101,29 @@ export const addTime = (givenTimeInMiliseconds) => {
         const timeInHours = timeInMinutes / 60;
 
         if(timeInHours > 22){
+            if(Math.ceil(timeInHours/24) === 1){
+                return `${Math.ceil(timeInHours/24)} day ago`
+            } else {
+                return `${Math.ceil(timeInHours/24)} days ago`
+            }
             
-            return `${Math.ceil(timeInHours/24)} days ago`
         } else {
-            return `${Math.ceil(timeInHours)} hours ago`
+            if(Math.ceil(timeInHours) === 1){
+                return `${Math.ceil(timeInHours)} hour ago`
+            } else {
+                return `${Math.ceil(timeInHours)} hours ago`
+            }
+            
         }
 
     } else {
-        return `${Math.ceil(timeInMinutes)} minutes ago`
+
+        if(Math.ceil(timeInMinutes) === 1){
+            return `${Math.ceil(timeInMinutes)} minute ago`
+        } else {
+            return `${Math.ceil(timeInMinutes)} minutes ago`
+        }
+        
     }
 
 }

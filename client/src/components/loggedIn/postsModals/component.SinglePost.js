@@ -58,9 +58,7 @@ class HomeLoggedIn extends Component {
                 message: ''
             })
             this.props.addComment(newComment);
-        }
-
-        
+        }    
 
     }
     handleChange = (e) => {
@@ -206,12 +204,8 @@ class HomeLoggedIn extends Component {
 }
 
 const mapStateToProps = (state,ownProps) => {
-
-        let filteredComments = [];
-
-   
-        filteredComments = state.comment.comments.filter(com => com?.post_id === ownProps.post._id);
-    
+    let filteredComments = [];
+    filteredComments = state.comment.comments.filter(com => com?.post_id === ownProps.post._id);
     
     return {
         user: state.auth.user,
