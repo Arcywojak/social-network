@@ -6,7 +6,7 @@ import Nav from './components/general/nav/Nav';
 import Footer from './components/general/Footer';
 import HomeLoggedOut from './components/loggedOut/page.HomeLoggedOut';
 import HomeLoggedIn from './components/loggedIn/homePage/page.HomeLoggedIn';
-import UserProfile   from './components/loggedIn/page.UserProfile';
+import UserProfile   from './components/loggedIn/userProfile/page.UserProfile';
 import Rulebook from './components/general/page.Rulebook';
 import About from './components/general/page.About';
 import Contact from './components/general/page.Contact';

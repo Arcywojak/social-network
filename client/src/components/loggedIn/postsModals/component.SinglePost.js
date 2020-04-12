@@ -67,6 +67,16 @@ class HomeLoggedIn extends Component {
         })
     }
 
+    checkOverflow = () => {
+        let contentBlock = document.querySelector('.single-post-content-inner')
+
+        if(contentBlock?.clientHeight > 408){
+            let overflow = document.querySelector('.single-post-content-inner-overflowed');
+
+            overflow.classList.remove('none');
+        }
+    }
+
     
     
     render(){
@@ -120,8 +130,16 @@ class HomeLoggedIn extends Component {
 
                     <div className="single-post-line"></div>
 
-                <div className="single-post-content">
-                    {post.content}
+                <div className="single-post-content" onLoad={this.checkOverflow()}>
+                    <div className="single-post-content-inner">
+                       {post.content}
+                    </div>
+                    <div className="single-post-content-inner-overflowed none">
+                        <Link to={`posts/${post._id}`}>
+                            ...See more
+                        </Link>
+                    </div>
+                    
                 </div>
 
               

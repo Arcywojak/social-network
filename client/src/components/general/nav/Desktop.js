@@ -27,7 +27,7 @@ class Desktop extends Component {
                 <NavLink to="/contact">contact</NavLink>
             </li>
             <li className="nav-link">
-                <NavLink to="/">
+                <NavLink to={`/user/${this.props.user?._id}`}>
                    <img src={require(`../../../images/avatars/${this.props.user?.image}`)} alt="me" />
                 </NavLink>
             </li>

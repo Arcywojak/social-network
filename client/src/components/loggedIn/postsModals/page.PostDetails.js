@@ -19,43 +19,11 @@ class PostDetails extends Component {
             this.props.getCommentsAll();
         }
 
-        document.addEventListener('scroll', () => {
-            let axeBlock = document.querySelector('.axe');
-            let axeParentBlock = document.querySelector('.axe-parent');
+        document.addEventListener('scroll', this.handleScroll);
+    }
 
-            if(   
-                  (
-                    axeBlock.clientHeight - window.scrollY
-                  ) < -30 
-                    &&
-                  ( 
-                    axeParentBlock.offsetTop - window.scrollY - 120 + 
-                    axeParentBlock.clientHeight - axeBlock.clientHeight
-                  ) > 0
-              ){
-
-                axeBlock.classList.add('flying-axe');
-                axeBlock.classList.remove('flying-axe-stay-down');
-                
-            } else if(
-                 (
-                  axeBlock.clientHeight - window.scrollY
-                 ) > -29){
-
-                axeBlock.classList.remove('flying-axe');
-                axeBlock.classList.remove('flying-axe-stay-down');
-
-            } else if(
-                (
-                  axeParentBlock.offsetTop - window.scrollY - 120 + 
-                  axeParentBlock.clientHeight - axeBlock.clientHeight
-                ) < 0
-                ) {
-                    axeBlock.classList.remove('flying-axe');
-                    axeBlock.classList.add('flying-axe-stay-down'); 
-                }
-        })
-        
+    componentWillUnmount(){
+        document.removeEventListener('scroll', this.handleScroll);
     }
 
     state={
@@ -117,6 +85,43 @@ class PostDetails extends Component {
             this.props.addComment(newComment);
         }    
 
+    }
+
+    handleScroll = () => {
+        let axeBlock = document.querySelector('.axe');
+        let axeParentBlock = document.querySelector('.axe-parent');
+
+        if(   
+              (
+                axeBlock.clientHeight - window.scrollY
+              ) < -30 
+                &&
+              ( 
+                axeParentBlock.offsetTop - window.scrollY - 120 + 
+                axeParentBlock.clientHeight - axeBlock.clientHeight
+              ) > 0
+          ){
+
+            axeBlock.classList.add('flying-axe');
+            axeBlock.classList.remove('flying-axe-stay-down');
+            
+        } else if(
+             (
+              axeBlock.clientHeight - window.scrollY
+             ) > -29){
+
+            axeBlock.classList.remove('flying-axe');
+            axeBlock.classList.remove('flying-axe-stay-down');
+
+        } else if(
+            (
+              axeParentBlock.offsetTop - window.scrollY - 120 + 
+              axeParentBlock.clientHeight - axeBlock.clientHeight
+            ) < 0
+            ) {
+                axeBlock.classList.remove('flying-axe');
+                axeBlock.classList.add('flying-axe-stay-down'); 
+            }
     }
 
     render(){   
