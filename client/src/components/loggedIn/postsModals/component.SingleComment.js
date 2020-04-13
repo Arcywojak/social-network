@@ -22,7 +22,7 @@ class SingleComment extends Component {
                         {addTime(this.props.comment.date)}
                     </span>
                     <span className="span-hover">
-                        report comment
+                        report
                     </span>
                 </div>
             </div>

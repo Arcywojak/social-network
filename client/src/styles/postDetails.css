@@ -28,6 +28,7 @@ main.post-details {
   background-color: #0E153A;
   padding: 40px 0 40px 20vw;
   color: #22D1EE;
+  border-bottom-right-radius: 150px;
 }
 
 @media (max-width: 1240px) {
@@ -44,7 +45,7 @@ main.post-details {
 
 @media (max-width: 850px) {
   .post-details-presence {
-    border-bottom-right-radius: 150px;
+    border-bottom-right-radius: 120px;
   }
 }
 
@@ -112,6 +113,7 @@ main.post-details {
 .post-details-author-ad {
   min-height: 50px;
   padding-left: 20vw;
+  padding-right: 15px;
   color: #0E153A;
   border-bottom: 1px solid #0E153A;
 }
@@ -138,8 +140,8 @@ main.post-details {
 }
 
 @media (max-width: 850px) {
-  .post-details-author-ad {
-    font-size: 14px;
+  .post-details-author-ad h2 {
+    font-size: 16px;
   }
 }
 
@@ -220,7 +222,7 @@ main.post-details {
 
 @media (max-width: 850px) {
   .post-details-advert-block {
-    right: -280px;
+    right: -285px;
     width: 300px;
   }
   .post-details-advert-block img {
@@ -246,6 +248,12 @@ main.post-details {
   }
 }
 
+@media (max-width: 550px) {
+  .post-details-comment-block {
+    padding: 40px 4vw;
+  }
+}
+
 .post-details-comment-block-inner {
   max-width: 650px;
 }
@@ -254,6 +262,18 @@ main.post-details {
   color: #E2F3F5;
   font-size: 40px;
   margin-top: 0;
+}
+
+@media (max-width: 550px) {
+  .post-details-comment-block h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 550px) {
+  .post-details-comment-block h2 {
+    font-size: 22px;
+  }
 }
 
 .post-details-comment-list {

@@ -35,7 +35,7 @@ main.post-details{
         background-color: $dark-blue;
         padding:40px 0 40px 20vw;
         color:$light-blue;
-       
+        border-bottom-right-radius: 150px;
 
         @media(max-width: 1240px){
             padding-left: 10vw;
@@ -44,7 +44,7 @@ main.post-details{
             padding-left:4vw; 
         }
         @media(max-width: 850px){
-            border-bottom-right-radius: 150px;
+            border-bottom-right-radius: 120px;
         }
 
         a{
@@ -107,6 +107,7 @@ main.post-details{
     &-author-ad{
         min-height:50px;
         padding-left: 20vw;
+        padding-right: 15px;
         color:$dark-blue;
         border-bottom: 1px solid $dark-blue;
         
@@ -124,7 +125,10 @@ main.post-details{
             padding-left:4vw; 
         }
         @media(max-width: 850px){
-            font-size: 14px;
+            
+            h2{
+                font-size: 16px;
+            }
         }
         @media(max-width: 550px){
             font-size: 14px;
@@ -184,7 +188,7 @@ main.post-details{
             }
         }
         @media(max-width: 850px){
-            right:-280px;
+            right:-285px;
             width:300px;
             
             img{
@@ -205,6 +209,10 @@ main.post-details{
         @media(max-width: 1050px){
             padding:40px 4vw; 
         }
+        @media(max-width: 550px){   
+            padding:40px 4vw; 
+        }
+
 
         &-inner{
             max-width: 650px;
@@ -214,6 +222,15 @@ main.post-details{
             color:$very-light-blue;
             font-size: 40px;
             margin-top: 0;
+
+            @media(max-width: 550px){
+                font-size: 28px;
+            }
+        }
+        h2{
+            @media(max-width: 550px){
+                font-size: 22px;
+            } 
         }
     }
 
