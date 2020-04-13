@@ -1,5 +1,6 @@
 // TO DO THIS PAGE I DREW INSPIRATION FROM CSS TRICKS
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getPosts} from '../../../actions/postActions';
 import PropTypes from 'prop-types';
@@ -8,6 +9,7 @@ import {addTime} from '../../../functions/functions';
 import '../../../styles/postDetails.min.css'
 import SingleComment from './component.SingleComment';
 import Axe from '../../../images/axe.svg';
+import GoBack from '../../../images/goBack.svg';
 
 class PostDetails extends Component {
 
@@ -87,11 +89,20 @@ class PostDetails extends Component {
 
     }
 
+    showAxe = () => {
+        let axe = document.querySelector('.axe');
+
+        if(window.innerWidth<= 850){
+            axe.classList.toggle('mobile-shown-axe');
+        }
+        
+    }
+
     handleScroll = () => {
         let axeBlock = document.querySelector('.axe');
         let axeParentBlock = document.querySelector('.axe-parent');
 
-        if(   
+        if( //WE ARE INTO CONTENT  
               (
                 axeBlock.clientHeight - window.scrollY
               ) < -30 
@@ -105,7 +116,7 @@ class PostDetails extends Component {
             axeBlock.classList.add('flying-axe');
             axeBlock.classList.remove('flying-axe-stay-down');
             
-        } else if(
+        } else if( //WE ARE ABOVE CONTENT
              (
               axeBlock.clientHeight - window.scrollY
              ) > -29){
@@ -113,14 +124,17 @@ class PostDetails extends Component {
             axeBlock.classList.remove('flying-axe');
             axeBlock.classList.remove('flying-axe-stay-down');
 
-        } else if(
+        } else if( //WE ARE AT THE BOTTOM OF CONTENT
             (
               axeParentBlock.offsetTop - window.scrollY - 120 + 
               axeParentBlock.clientHeight - axeBlock.clientHeight
             ) < 0
             ) {
-                axeBlock.classList.remove('flying-axe');
-                axeBlock.classList.add('flying-axe-stay-down'); 
+                if(window.innerWidth > 850){
+                    axeBlock.classList.remove('flying-axe');
+                    axeBlock.classList.add('flying-axe-stay-down');
+                }
+                 
             }
     }
 
@@ -152,6 +166,15 @@ class PostDetails extends Component {
 
         return (
             <main className="container post-details">
+
+            {/* FLYING BLOCK */}
+                <Link to='/'>
+                    <div className="flying-block-go-back">
+                        <img src={GoBack} alt="go back" />
+                    </div>
+                </Link>
+            {/* ///////////// */}
+
                 <div className="post-details-wrapper">
                     <section className="post-details-presence">
                         <div className="post-details-presence-inner">
@@ -164,7 +187,9 @@ class PostDetails extends Component {
                                 </div>
                                 <div className="post-details-presence-inner-author-text">
                                     Author <br/>
-                                    <b>{this.props?.post?.user_name}</b>    
+                                    <Link to={`/user/${this.props?.post?.user_id}`}>
+                                        <b>{this.props?.post?.user_name}</b>   
+                                    </Link> 
                                 </div>
                                 <div className="post-details-presence-inner-author-text">
                                     Published <br/>
@@ -187,7 +212,11 @@ class PostDetails extends Component {
                         </div>  
                     </section>
                     <section className='post-details-author-ad'>
-                        <h2>{this.props?.post?.user_name} has added 6 posts. Learn more about his content.</h2>
+                        <h2>{this.props?.post?.user_name} has added 6 posts. 
+                            <Link to={`/user/${this.props?.post?.user_id}`}>
+                                 Learn more about his content.
+                            </Link>
+                        </h2>
                     </section>
                 </div>
                 <section className="post-details-content-and-sidebar">
@@ -195,7 +224,7 @@ class PostDetails extends Component {
                            <pre> {this.props?.post?.content} </pre>
                     </article>
                     <aside className="post-details-sidebar axe-parent">
-                        <div className="post-details-advert-block axe">
+                        <div className="post-details-advert-block axe" onClick={this.showAxe}>
                             <h2>
                              THERE SHOULD BE SOME ADVERT BUT I WANT TO SHOW YOU THIS AXE
                             </h2>
