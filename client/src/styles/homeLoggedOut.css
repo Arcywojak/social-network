@@ -2,14 +2,6 @@
   margin: 0;
 }
 
-.inner-container {
-  padding: 20px;
-  border-left: 1px solid #0E153A;
-  border-right: 1px solid #0E153A;
-  background: #96e3ff;
-  background: linear-gradient(94deg, #96e3ff 0%, #aae6ff 100%);
-}
-
 .grid-block {
   display: grid;
   justify-content: center;

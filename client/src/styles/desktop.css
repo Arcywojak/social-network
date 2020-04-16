@@ -86,6 +86,7 @@ a.logo {
 
 .nav-link a img {
   width: 40px;
+  border-radius: 50%;
 }
 
 .nav-link a.active {

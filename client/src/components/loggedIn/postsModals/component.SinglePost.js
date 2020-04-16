@@ -67,18 +67,6 @@ class HomeLoggedIn extends Component {
         })
     }
 
-    checkOverflow = () => {
-        let contentBlock = document.querySelector('.single-post-content-inner')
-
-        if(contentBlock?.clientHeight > 408){
-            let overflow = document.querySelector('.single-post-content-inner-overflowed');
-
-            overflow.classList.remove('none');
-        }
-    }
-
-    
-    
     render(){
 
         const {post} = this.props;
@@ -130,7 +118,7 @@ class HomeLoggedIn extends Component {
 
                     <div className="single-post-line"></div>
 
-                <div className="single-post-content" onLoad={this.checkOverflow()}>
+                <div className="single-post-content">
                     <div className="single-post-content-inner">
                        {post.content}
                     </div>
@@ -150,7 +138,7 @@ class HomeLoggedIn extends Component {
                             likes:  {Math.round(Math.random()*(50 - 5 + 1) + 5)}
                         </span>
                         <span className="second">
-                           comments:  {Math.round(Math.random()*(30 - 0 + 1))}
+                           comments:  {this.props.numberOfComments}
                         </span>
                         <span className="third">
                            shares:  {Math.round(Math.random()*(30 - 0 + 1))} 
@@ -160,11 +148,11 @@ class HomeLoggedIn extends Component {
                     <div className="single-post-line"></div>
 
                     <div className="react-on-post-block">
-                        <div className="react-on-post-block-text-and-img">
+                        <div className="react-on-post-block-text-and-img"  onClick={this.noYouDoNot}>
                             <div className="react-on-post-block-img">
                                 <img src={starIcon} alt="super" />
                             </div>
-                            <div className="react-on-post-block-text" onClick={this.noYouDoNot}>
+                            <div className="react-on-post-block-text">
                                 I like it!
                                 {noYouDoNotBlock}
                             </div>
@@ -224,10 +212,13 @@ class HomeLoggedIn extends Component {
 const mapStateToProps = (state,ownProps) => {
     let filteredComments = [];
     filteredComments = state.comment.comments.filter(com => com?.post_id === ownProps.post._id);
+
+    console.log(filteredComments.length)
     
     return {
         user: state.auth.user,
-        comments:filteredComments
+        comments:filteredComments,
+        numberOfComments: filteredComments.length
     }
 }
 

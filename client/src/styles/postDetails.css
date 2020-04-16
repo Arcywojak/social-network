@@ -222,8 +222,9 @@ main.post-details {
 
 @media (max-width: 850px) {
   .post-details-advert-block {
-    right: -285px;
+    right: -290px;
     width: 300px;
+    position: fixed;
   }
   .post-details-advert-block img {
     width: 400px;
@@ -250,12 +251,38 @@ main.post-details {
 
 @media (max-width: 550px) {
   .post-details-comment-block {
-    padding: 40px 4vw;
+    padding: 40px 15px 40px 10px;
   }
 }
 
 .post-details-comment-block-inner {
   max-width: 650px;
+}
+
+.post-details-comment-block-inner .comment-it {
+  align-items: flex-start;
+}
+
+.post-details-comment-block-inner .comment-it-user-input {
+  grid-template-columns: 100%;
+}
+
+.post-details-comment-block-inner .comment-it-input {
+  height: 150px;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-start;
+  word-wrap: break-word;
+  word-break: break-all;
+  appearance: textarea;
+  padding-top: 15px;
+}
+
+.post-details-comment-block-inner .add-comment-btn {
+  width: 200px;
+  margin: 15px auto 15px 0;
+  border-radius: 10px;
+  height: 40px;
 }
 
 .post-details-comment-block h1 {
@@ -277,7 +304,7 @@ main.post-details {
 }
 
 .post-details-comment-list {
-  margin-top: 70px;
+  margin-top: 40px;
 }
 
 .post-details-comment-list span {
@@ -304,7 +331,7 @@ pre {
 
 @media (max-width: 850px) {
   .flying-axe {
-    top: 50px;
+    top: 40px;
   }
 }
 
@@ -352,6 +379,6 @@ pre {
 
 @media (max-width: 700px) {
   .mobile-shown-axe {
-    transform: translate(calc(-50vw - 135px), 0px);
+    transform: translate(calc(-50vw - 140px), 0px);
   }
 }

@@ -3,4 +3,14 @@
   max-width: 1100px;
   min-height: 100vh;
   margin: 0 auto;
+  padding: 20px;
+  border-left: 1px solid #0E153A;
+  border-right: 1px solid #0E153A;
+  background: #96e3ff;
+}
+
+@media (max-width: 700px) {
+  .inner-container {
+    padding: 20px 0;
+  }
 }

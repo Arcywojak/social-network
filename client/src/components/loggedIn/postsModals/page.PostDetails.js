@@ -241,12 +241,14 @@ class PostDetails extends Component {
                                 {image}
                             </div>
                             <form className="comment-it-user-input">
-                                <input value={this.state.message} name="message" className="comment-it-input" onChange={(e) => {this.handleChange(e)}} placeholder="Write a comment" required/>
+                                <textarea value={this.state.message} name="message" className="comment-it-input" 
+                                onChange={(e) => {this.handleChange(e)}} placeholder="Write a comment" required></textarea>
                                 <button className="add-comment-btn" onClick={this.handleSubmit}>Enter</button>
                             </form> 
                         </div>
+                        
                         <div className="post-details-comment-list">
-
+                        <h1>Comments</h1>
                             {listOfComments}
 
                         </div>

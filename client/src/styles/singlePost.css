@@ -95,6 +95,42 @@
   text-decoration: underline;
 }
 
+@media (max-width: 600px) {
+  .single-post {
+    padding: 5px 10px 30px;
+  }
+  .single-post-title {
+    font-size: 30px;
+    padding: 10px;
+  }
+  .single-post-author-text {
+    font-size: 25px;
+  }
+  .single-post-content {
+    padding: 0 15px;
+    font-size: 20px;
+  }
+  .single-post-tag-list {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .single-post-line {
+    margin: 10px auto;
+  }
+  .single-post-title {
+    font-size: 25px;
+  }
+  .single-post-author-text {
+    font-size: 20px;
+  }
+  .single-post-content {
+    font-size: 18px;
+    padding: 0 5px;
+  }
+}
+
 a.link-to-post {
   text-decoration: none;
 }
@@ -153,6 +189,32 @@ a.link-to-post {
 
 .react-on-post-block-text {
   position: relative;
+}
+
+@media (max-width: 600px) {
+  .react-on-post-block {
+    grid-template-columns: calc(31% - 2px) 3px calc(38% - 2px) 3px calc(31% - 2px);
+  }
+  .react-on-post-block-text-and-img {
+    font-size: 16px;
+  }
+  .react-on-post-block-text-and-img img {
+    width: 20px;
+    height: 20px;
+  }
+  .react-on-post-block-img {
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .react-on-post-block-text-and-img {
+    font-size: 13px;
+  }
+  .react-on-post-block-text-and-img img {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 .comment-it {
@@ -340,6 +402,13 @@ a.link-to-post {
 .react-to-comment {
   margin-top: 5px;
   padding-left: 70px;
+}
+
+@media (max-width: 550px) {
+  .react-to-comment {
+    padding-left: 42px;
+    font-size: 14px;
+  }
 }
 
 .span-margin {

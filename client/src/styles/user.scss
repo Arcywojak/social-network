@@ -1,0 +1,56 @@
+@import './main-colors.scss';
+
+.user-profile-block{
+    display:grid;
+    grid-template-columns: 23% 43%  calc(34% - 48px);
+    column-gap: 24px;
+    padding:20px;
+
+    &-child-1{
+        border-radius: 1rem;
+        background-color: $very-light-blue;
+        color:$dark-blue;
+        padding:2vw;
+        max-height: 750px;
+        overflow: hidden;
+        
+        &-inner-scroll{
+            overflow: auto  ;
+            max-height: calc(750px - 4vw);
+        }
+    }
+    &-user-text-and-img{
+        margin-bottom: 45px;
+        text-align: center;
+        img{
+            width:250px;
+            height:250px;
+            border-radius: 50%;
+        }
+        h1{
+            display: block;
+            background-color: $blue;
+            color:$very-light-blue;
+            border-radius: 1rem;
+            padding:5px;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+    }
+    &-about-user{
+        border-radius: 1rem;
+        background-color: $light-sky-blue;
+        padding:1px 10px;
+        margin:20px 0;
+
+        h2{
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+    &-child-2{
+        border-radius: 1rem;
+        background-color: $very-light-blue;
+    }
+}

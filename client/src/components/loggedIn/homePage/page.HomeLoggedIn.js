@@ -3,7 +3,6 @@ import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import '../../../styles/homeLoggedIn.css';
-import {toggleAuth, removeAll} from '../../../functions/functions';
 import CreatePostForm from './component.CreatePostForm';
 import PostList from '../postsModals/component.PostList';
 import PostAdded from './component.PostAdded';

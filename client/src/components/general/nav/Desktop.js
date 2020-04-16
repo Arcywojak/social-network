@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {NavLink, Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {logout} from '../../../actions/authActions'
-import '../../../styles/deskop.css'
+import '../../../styles/desktop.css'
 import {toggleAuth} from '../../../functions/functions';
 
 class Desktop extends Component {

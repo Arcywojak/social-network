@@ -16,6 +16,28 @@ class PostList extends Component {
     componentDidMount(){
         this.props.getPosts();
         this.props.getCommentsAll();
+        
+    }
+    componentDidUpdate(){
+        this.checkOverflow();
+    }
+
+    checkOverflow = () => {
+        let contentBlocks = document.querySelectorAll('.single-post-content-inner');
+
+        
+        contentBlocks.forEach( (block) => {
+
+            console.log(block.nextElementSibling)
+
+            if(block.clientHeight > 408){            
+    
+                block.nextElementSibling.classList.remove('none');
+            }
+
+        })
+
+        
     }
 
     render(){
