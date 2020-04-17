@@ -10,9 +10,10 @@
         border-radius: 1rem;
         background-color: $very-light-blue;
         color:$dark-blue;
-        padding:2vw;
+        padding:2vw 1.8vw 2vw 2vw;
         max-height: 750px;
         overflow: hidden;
+        border:1px solid darken($very-light-blue, 50%);
         
         &-inner-scroll{
             overflow: auto  ;
@@ -35,6 +36,7 @@
             padding:5px;
             font-size: 25px;
             font-weight: 500;
+            border:1px solid $dark-blue;
         }
         
     }
@@ -43,6 +45,7 @@
         background-color: $light-sky-blue;
         padding:1px 10px;
         margin:20px 0;
+        border:1px solid darken($very-light-blue, 50%);
 
         h2{
             font-size: 20px;
@@ -50,7 +53,26 @@
         }
     }
     &-child-2{
-        border-radius: 1rem;
-        background-color: $very-light-blue;
+        max-height:750px;
+        overflow: auto;
+
+        &-title{
+            border:1rem;
+            text-align: center;
+            background-color: $very-light-blue;
+            color:$dark-blue;
+            font-size: 40px;
+            border-radius: 1rem;
+            padding:30px;
+            border:1px solid darken($very-light-blue, 50%);
+            margin-bottom: 8px;
+        }
+
+        &-inner-post-list{
+            max-height:614px;
+            overflow: auto; 
+            border-radius: 1rem;
+            padding-right:5px
+        }
     }
 }

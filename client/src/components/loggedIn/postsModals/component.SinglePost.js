@@ -71,6 +71,26 @@ class HomeLoggedIn extends Component {
 
         const {post} = this.props;
 
+        const authorImage = this.props?.post?.user_image !==undefined ? (
+            <>
+               <img src={require(`../../../images/avatars/${post?.user_image}`)} alt="me"/>
+            </>
+        ) : (
+         <>
+         <img src={require('../../../images/avatars/NoImg.png')} />
+      </>
+        )
+
+        const userImage = this.props?.user?.image !==undefined ? (
+            <>
+               <img src={require(`../../../images/avatars/${this.props?.user?.image}`)} alt="me"/>
+            </>
+        ) : (
+         <>
+         <img src={require('../../../images/avatars/NoImg.png')} />
+      </>
+        )
+
         const noYouDoNotBlock = this.state.noYouDoNot ? (
             <div className="no-you-do-not">
                 No, you do not...
@@ -101,7 +121,7 @@ class HomeLoggedIn extends Component {
                 </div>
                 <div className="single-post-author">
                     <div className="single-post-author-img">
-                        <img src={require(`../../../images/avatars/${post.user_image}`)} alt="me" />
+                        {authorImage}
                     </div>
                     <div className="single-post-author-text">
                         <b>{post.user_name}</b> has written {addTime(post.add_date)}
@@ -193,7 +213,7 @@ class HomeLoggedIn extends Component {
 
                         <div className="comment-it">
                             <div className="comment-it-user-img">
-                                <img src={require(`../../../images/avatars/${this.props.user.image}`)} />
+                                {userImage}
                             </div>
                             <form className="comment-it-user-input">
                                 <input value={this.state.message} name="message" className="comment-it-input" onChange={(e) => {this.handleChange(e)}} placeholder="Write a comment" required/>

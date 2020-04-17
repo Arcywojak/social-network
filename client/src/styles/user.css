@@ -9,9 +9,10 @@
   border-radius: 1rem;
   background-color: #E2F3F5;
   color: #0E153A;
-  padding: 2vw;
+  padding: 2vw 1.8vw 2vw 2vw;
   max-height: 750px;
   overflow: hidden;
+  border: 1px solid #3796a1;
 }
 
 .user-profile-block-child-1-inner-scroll {
@@ -38,6 +39,7 @@
   padding: 5px;
   font-size: 25px;
   font-weight: 500;
+  border: 1px solid #0E153A;
 }
 
 .user-profile-block-about-user {
@@ -45,6 +47,7 @@
   background-color: #95defa;
   padding: 1px 10px;
   margin: 20px 0;
+  border: 1px solid #3796a1;
 }
 
 .user-profile-block-about-user h2 {
@@ -53,6 +56,25 @@
 }
 
 .user-profile-block-child-2 {
-  border-radius: 1rem;
+  max-height: 750px;
+  overflow: auto;
+}
+
+.user-profile-block-child-2-title {
+  border: 1rem;
+  text-align: center;
   background-color: #E2F3F5;
+  color: #0E153A;
+  font-size: 40px;
+  border-radius: 1rem;
+  padding: 30px;
+  border: 1px solid #3796a1;
+  margin-bottom: 8px;
+}
+
+.user-profile-block-child-2-inner-post-list {
+  max-height: 614px;
+  overflow: auto;
+  border-radius: 1rem;
+  padding-right: 5px;
 }
