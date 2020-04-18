@@ -33,7 +33,7 @@ class Nav extends Component  {
     componentDidUpdate(prevProps){
         let closeAuthModals = document.querySelector('.close-auth-modals');
 
-        if(!this.props.auth.isLoading){
+        if(!this.props.auth.isLoading ){
             let loader = document.querySelector('.loader')
             loader.classList.add('none')
         }

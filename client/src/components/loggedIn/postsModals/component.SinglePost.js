@@ -232,8 +232,6 @@ class HomeLoggedIn extends Component {
 const mapStateToProps = (state,ownProps) => {
     let filteredComments = [];
     filteredComments = state.comment.comments.filter(com => com?.post_id === ownProps.post._id);
-
-    console.log(filteredComments.length)
     
     return {
         user: state.auth.user,

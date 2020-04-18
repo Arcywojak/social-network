@@ -28,7 +28,6 @@ class PostList extends Component {
         
         contentBlocks.forEach( (block) => {
 
-            console.log(block.nextElementSibling)
 
             if(block.clientHeight > 408){            
     

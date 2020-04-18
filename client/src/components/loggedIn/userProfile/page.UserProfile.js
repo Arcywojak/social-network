@@ -1,12 +1,16 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom';
+import Sword from '../../../images/sword.svg';
+import FlagSword from '../../../images/flag-sword.svg';
+import FlagPosts from '../../../images/flag-posts.svg';
+import FlagAbout from '../../../images/flag-about.svg';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {getPosts} from '../../../actions/postActions';
 import {getOtherUser} from '../../../actions/userActions';
 import {getCommentsAll} from '../../../actions/commentActions';
 import '../../../styles/user.min.css';
-import {Sword} from '../../../images/sword.svg';
+
 import SinglePost from '../postsModals/component.SinglePost';
 
 
@@ -21,7 +25,6 @@ class UserProfile extends Component {
         if(this.props.comments.length === 0){
             this.props.getCommentsAll();
         }
-        console.log(this.props)
 
         let userId = this.props.history.location.pathname.slice(6);
 
@@ -45,16 +48,83 @@ class UserProfile extends Component {
         
         contentBlocks.forEach( (block) => {
 
-            console.log(block.nextElementSibling)
-
             if(block.clientHeight > 408){            
     
                 block.nextElementSibling.classList.remove('none');
             }
 
         })
+    }
 
-        
+    changeBlock = (block='') => {
+        let about = document.querySelector('.user-profile-block-child-1');
+        let posts = document.querySelector('.user-profile-block-child-2');
+        let sword = document.querySelector('.user-profile-block-child-3');
+
+        let aboutFlag = document.querySelector('.flying-block-go-back.change-block.third');
+        let postsFlag = document.querySelector('.flying-block-go-back.change-block.second');
+        let swordFlag = document.querySelector('.flying-block-go-back.change-block.first');
+
+        switch(block){
+            case 'ABOUT': 
+                about.classList.remove('disabled');
+                aboutFlag.classList.add('dormant');
+
+                posts.classList.add('disabled');
+                postsFlag.classList.remove('dormant');
+
+                sword.classList.add('disabled');
+                swordFlag.classList.remove('dormant');
+                break;
+            case 'POSTS':
+                about.classList.add('disabled');
+                aboutFlag.classList.remove('dormant');
+
+                posts.classList.remove('disabled');
+                postsFlag.classList.add('dormant');
+
+                sword.classList.add('disabled');
+                swordFlag.classList.remove('dormant');
+                break;
+            case 'SWORD':
+                about.classList.add('disabled');
+                aboutFlag.classList.remove('dormant');
+
+                posts.classList.add('disabled');
+                postsFlag.classList.remove('dormant');
+
+                sword.classList.remove('disabled');
+                swordFlag.classList.add('dormant');
+                break;
+
+            default:break;
+        }
+    }
+
+    toggleFlags = (show) => {
+        let aboutFlag = document.querySelector('.flying-block-go-back.change-block.third');
+        let postsFlag = document.querySelector('.flying-block-go-back.change-block.second');
+        let swordFlag = document.querySelector('.flying-block-go-back.change-block.first');
+
+        let hideBlock = document.querySelector('.flying-block-hide-flag');
+        let showBlock = document.querySelector('.flying-block-show-flag')
+
+        if(show){
+            showBlock.classList.add('none');
+            hideBlock.classList.remove('none');
+
+            aboutFlag.classList.remove('hidden-flag');
+            postsFlag.classList.remove('hidden-flag'); 
+            swordFlag.classList.remove('hidden-flag');
+
+        } else {
+            showBlock.classList.remove('none');
+            hideBlock.classList.add('none');
+
+            aboutFlag.classList.add('hidden-flag');
+            postsFlag.classList.add('hidden-flag');
+            swordFlag.classList.add('hidden-flag');
+        }
     }
 
     
@@ -81,13 +151,33 @@ class UserProfile extends Component {
          <img src={require('../../../images/avatars/NoImg.png')} />
       </>
         )
-        console.log(this.props.otherUser)
 
         return (
             <main className="container">
+
+                {/************************* FLYING BlOCK *************************/}
+
+                    <div className="flying-block-go-back change-block first" 
+                    onClick={()=>{this.changeBlock('SWORD')}}>
+                        <img src={FlagSword} alt="go back" />
+                    </div>
+                    <div className="flying-block-go-back change-block second "
+                    onClick={()=>{this.changeBlock('POSTS')}}>
+                        <img src={FlagPosts} alt="go back" />
+                    </div>
+                    <div className="flying-block-go-back change-block third dormant"
+                    onClick={()=>{this.changeBlock('ABOUT')}}>
+                        <img src={FlagAbout} alt="go back" />
+                    </div>
+                    <div className="flying-block-hide-flag" onClick={()=>{this.toggleFlags(false)}}>hide</div>
+                    <div className="flying-block-show-flag" onClick={()=>{this.toggleFlags(true)}}>show</div>
+                    
+                 {/**********************************************************/}
+
                 <div className="user-profile-block">
                     <section className="user-profile-block-child-1">
                         <div className="user-profile-block-child-1-inner-scroll">
+                            <a href="#settings">ustawienie</a>
                         <div className="user-profile-block-user-text-and-img">
                             {image}
                             <h1>{this.props?.otherUser?.name}</h1>
@@ -96,11 +186,15 @@ class UserProfile extends Component {
                             <h2>Nationality: <b>&nbsp;Polish</b></h2>
                         </div>
                         <div className="user-profile-block-about-user">
-                            <h2>Date of birth: <b>&nbsp;25.03.2000</b></h2>
-                        </div>
-                        <div className="user-profile-block-about-user">
                             <h2>place: <b>&nbsp;Warsaw, Poland</b></h2>
                         </div>
+                        <div className="user-profile-block-about-user">
+                            <h2>Date of birth: <b>&nbsp;2000-03-25</b></h2>
+                        </div>
+                        <div className="user-profile-block-about-user">
+                            <h2>Register date: <b>&nbsp;{this.props?.otherUser?.register_date?.slice(0,10)}</b></h2>
+                        </div>
+                        
                         <div className="user-profile-block-about-user">
                             <h2>About me:</h2>
                             <p>Roquefort red leicester red leicester. Cauliflower cheese pepper jack pepper 
@@ -110,9 +204,13 @@ class UserProfile extends Component {
                                  cheeseburger emmental queso cheesy grin cheese strings. Feta port-salut 
                                  queso.</p>
                         </div>
+
+                        <div id="settings" className="user-profile-block-child-1-line"></div>
+                            <h1>SETTINGS</h1>
+
                         </div>
                     </section>
-                    <section className="user-profile-block-child-2">
+                    <section className="user-profile-block-child-2 disabled">
                         <div className="user-profile-block-child-2-title">
                            {this.props?.otherUser?.name}'s posts
                         </div>
@@ -120,8 +218,13 @@ class UserProfile extends Component {
                             {listOfPosts}
                         </div>
                     </section>
-                    <aside className="user-profile-block-child-3">
-
+                    <aside className="user-profile-block-child-3 disabled">
+                        <div className="post-details-advert-block sword" >
+                            <h2>
+                             THIS TIME I WANT TO SHOW YOU THIS SWORD
+                            </h2>
+                            <img src={Sword} alt="sword" />
+                        </div>
                     </aside>
                 </div>
             </main>
@@ -136,7 +239,6 @@ const mapStateToProps = (state, ownProps) => {
     let filteredPosts = [];
         filteredPosts = state.posts.posts.filter(post => post?.user_id === id);
 
-console.log(state)
     return {
         isAuthenticated: state.auth.isAuthenticated,
         otherUser: state.otherUser.otherUser,

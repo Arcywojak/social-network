@@ -5,7 +5,6 @@ import {returnErrors} from './errorActions';
 
 export const getOtherUser = (id=null) => (dispatch, getState) => {
     if(id){   
-        console.log("I DO IT")  
         axios
         .get(`/api/auth/user/${id}`, tokenConfig(getState))
         .then(res => {

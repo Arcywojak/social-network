@@ -71,6 +71,9 @@ class Desktop extends Component {
 }
 
 const mapStateToProps = state => {
+
+    console.log(state.auth.user)
+
     return{
         isAuthenticated: state.auth.isAuthenticated,
         user: state.auth.user
