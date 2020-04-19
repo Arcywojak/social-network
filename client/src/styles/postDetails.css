@@ -184,6 +184,7 @@ main.post-details {
 
 @media (max-width: 550px) {
   .post-details-content {
+    font-size: 18px;
     padding-right: 0;
   }
 }

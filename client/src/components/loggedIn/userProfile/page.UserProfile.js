@@ -65,39 +65,41 @@ class UserProfile extends Component {
         let postsFlag = document.querySelector('.flying-block-go-back.change-block.second');
         let swordFlag = document.querySelector('.flying-block-go-back.change-block.first');
 
-        switch(block){
-            case 'ABOUT': 
-                about.classList.remove('disabled');
-                aboutFlag.classList.add('dormant');
+        if(!aboutFlag.classList.contains('hidden-flag')){ 
+            switch(block){
+                case 'ABOUT': 
+                    about.classList.remove('disabled');
+                    aboutFlag.classList.add('dormant');
 
-                posts.classList.add('disabled');
-                postsFlag.classList.remove('dormant');
+                    posts.classList.add('disabled');
+                    postsFlag.classList.remove('dormant');
 
-                sword.classList.add('disabled');
-                swordFlag.classList.remove('dormant');
-                break;
-            case 'POSTS':
-                about.classList.add('disabled');
-                aboutFlag.classList.remove('dormant');
+                    sword.classList.add('disabled');
+                    swordFlag.classList.remove('dormant');
+                    break;
+                case 'POSTS':
+                    about.classList.add('disabled');
+                    aboutFlag.classList.remove('dormant');
 
-                posts.classList.remove('disabled');
-                postsFlag.classList.add('dormant');
+                    posts.classList.remove('disabled');
+                    postsFlag.classList.add('dormant');
 
-                sword.classList.add('disabled');
-                swordFlag.classList.remove('dormant');
-                break;
-            case 'SWORD':
-                about.classList.add('disabled');
-                aboutFlag.classList.remove('dormant');
+                    sword.classList.add('disabled');
+                    swordFlag.classList.remove('dormant');
+                    break;
+                case 'SWORD':
+                    about.classList.add('disabled');
+                    aboutFlag.classList.remove('dormant');
 
-                posts.classList.add('disabled');
-                postsFlag.classList.remove('dormant');
+                    posts.classList.add('disabled');
+                    postsFlag.classList.remove('dormant');
 
-                sword.classList.remove('disabled');
-                swordFlag.classList.add('dormant');
-                break;
+                    sword.classList.remove('disabled');
+                    swordFlag.classList.add('dormant');
+                    break;
 
-            default:break;
+                default:break;
+            }
         }
     }
 
@@ -170,7 +172,7 @@ class UserProfile extends Component {
                         <img src={FlagAbout} alt="go back" />
                     </div>
                     <div className="flying-block-hide-flag" onClick={()=>{this.toggleFlags(false)}}>hide</div>
-                    <div className="flying-block-show-flag" onClick={()=>{this.toggleFlags(true)}}>show</div>
+                    <div className="flying-block-show-flag none" onClick={()=>{this.toggleFlags(true)}}>show</div>
                     
                  {/**********************************************************/}
 

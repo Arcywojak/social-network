@@ -126,8 +126,8 @@
     font-size: 20px;
   }
   .single-post-content {
-    font-size: 18px;
-    padding: 0 5px;
+    font-size: 16px;
+    padding: 12px 6px 8pxf;
   }
 }
 
@@ -147,6 +147,13 @@ a.link-to-post {
 
 .info-about-reach .third {
   text-align: right;
+}
+
+@media (max-width: 400px) {
+  .info-about-reach {
+    grid-template-columns: 30% 40% 30%;
+    font-size: 14px;
+  }
 }
 
 .under-content-block {
