@@ -37,8 +37,12 @@
   font-size: 20px;
   font-weight: 500;
   border-bottom: 1px solid #0E153A;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .form-create-post-title img, .post-added-information-title img {
@@ -54,10 +58,16 @@
 }
 
 .inner-form {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  justify-content: center;
-  align-items: center;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 15px 10px;
 }
 
@@ -87,13 +97,15 @@
 
 @media (max-width: 700px) {
   .inner-form {
-    grid-template-columns: 1fr 1.4fr;
+    -ms-grid-columns: 1fr 1.4fr;
+        grid-template-columns: 1fr 1.4fr;
   }
 }
 
 @media (max-width: 540px) {
   .inner-form {
-    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
     width: 100%;
     border-radius: 0;
     padding: 15px 15px 5px 30px;
@@ -102,8 +114,11 @@
 
 .list-of-tags {
   padding: 0 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 @media (max-width: 700px) {
@@ -116,9 +131,15 @@
 }
 
 .tag-to-add {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #3D5AF1;
   color: #E2F3F5;
   padding: 0 15px;
@@ -136,10 +157,17 @@
 }
 
 .add-tags-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   min-height: 70px;
 }
 
@@ -147,6 +175,21 @@
   width: 127px;
   margin: 0 27px;
   font-size: 17px;
+}
+
+.add-tags-block .bottom-line-input::-webkit-input-placeholder {
+  color: #8d8d8d;
+  font-style: italic;
+}
+
+.add-tags-block .bottom-line-input:-ms-input-placeholder {
+  color: #8d8d8d;
+  font-style: italic;
+}
+
+.add-tags-block .bottom-line-input::-ms-input-placeholder {
+  color: #8d8d8d;
+  font-style: italic;
 }
 
 .add-tags-block .bottom-line-input::placeholder {
@@ -164,6 +207,7 @@
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
+  -webkit-transition: background-color .4s ease-in, color .1s ease-in;
   transition: background-color .4s ease-in, color .1s ease-in;
 }
 
@@ -240,10 +284,16 @@ textarea {
 }
 
 .trigger-create-post-inner {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 80px 1fr;
-  justify-content: center;
-  align-items: center;
+  -ms-grid-columns: 80px 1fr;
+      grid-template-columns: 80px 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-radius: 0 0 15px 15px;
   width: 100%;
   color: #0E153A;
@@ -301,3 +351,4 @@ textarea {
     margin: 50px 0;
   }
 }
+/*# sourceMappingURL=createPostForm.css.map */

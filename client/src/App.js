@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import store from './store';
 import {Provider} from 'react-redux';
-import {Route, BrowserRouter as Router} from 'react-router-dom';
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 import Nav from './components/general/nav/Nav';
 import Footer from './components/general/Footer';
 import HomeLoggedOut from './components/loggedOut/page.HomeLoggedOut';
@@ -11,6 +11,7 @@ import Rulebook from './components/general/page.Rulebook';
 import About from './components/general/page.About';
 import Contact from './components/general/page.Contact';
 import PostDetails from './components/loggedIn/postsModals/page.PostDetails';
+import Page404 from './components/general/page.404';
 
 import './App.css';
 import './styles/ALL_STYLES.min.css';
@@ -26,7 +27,10 @@ class App extends Component {
     <Router>
       <Provider store={store}>
         <div className="App">
+
           <Nav/>
+
+        <Switch>
           <Route exact path='/'   component={HomeLoggedIn} />
           <Route path='/welcome'   component={HomeLoggedOut} />
           <Route path='/rulebook' component={Rulebook} />
@@ -34,7 +38,11 @@ class App extends Component {
           <Route path='/contact'  component={Contact} />
           <Route path='/user/:username'  component={UserProfile} />
           <Route path='/posts/:id'  component={PostDetails} />
+          <Route component={Page404} />
+        </Switch>
+
           <Footer/>
+
         </div>
       </Provider>
     </Router>

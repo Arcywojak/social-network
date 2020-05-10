@@ -9,15 +9,24 @@
 }
 
 .single-post-tag-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin-bottom: 30px;
 }
 
 .single-post-tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #3D5AF1;
   color: #E2F3F5;
   padding: 0 10px;
@@ -29,10 +38,16 @@
 }
 
 .single-post-author {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 150px calc(100% - 150px);
-  justify-content: center;
-  align-items: center;
+  -ms-grid-columns: 150px calc(100% - 150px);
+      grid-template-columns: 150px calc(100% - 150px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .single-post-author-img img {
@@ -88,7 +103,8 @@
 }
 
 .single-post-content-inner-overflowed a {
-  text-decoration-style: initial;
+  -webkit-text-decoration-style: initial;
+          text-decoration-style: initial;
 }
 
 .single-post-content-inner-overflowed a:hover {
@@ -136,8 +152,10 @@ a.link-to-post {
 }
 
 .info-about-reach {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   padding: 0 10px;
 }
 
@@ -151,7 +169,8 @@ a.link-to-post {
 
 @media (max-width: 400px) {
   .info-about-reach {
-    grid-template-columns: 30% 40% 30%;
+    -ms-grid-columns: 30% 40% 30%;
+        grid-template-columns: 30% 40% 30%;
     font-size: 14px;
   }
 }
@@ -162,10 +181,16 @@ a.link-to-post {
 }
 
 .react-on-post-block {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: calc(33% - 2px) 3px calc(33% - 2px) 3px calc(33% - 2px);
-  justify-content: center;
-  align-items: center;
+  -ms-grid-columns: calc(33% - 2px) 3px calc(33% - 2px) 3px calc(33% - 2px);
+      grid-template-columns: calc(33% - 2px) 3px calc(33% - 2px) 3px calc(33% - 2px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
   font-weight: 500;
 }
@@ -178,9 +203,15 @@ a.link-to-post {
 }
 
 .react-on-post-block-text-and-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 20px;
   padding: 8px;
   cursor: pointer;
@@ -200,7 +231,8 @@ a.link-to-post {
 
 @media (max-width: 600px) {
   .react-on-post-block {
-    grid-template-columns: calc(31% - 2px) 3px calc(38% - 2px) 3px calc(31% - 2px);
+    -ms-grid-columns: calc(31% - 2px) 3px calc(38% - 2px) 3px calc(31% - 2px);
+        grid-template-columns: calc(31% - 2px) 3px calc(38% - 2px) 3px calc(31% - 2px);
   }
   .react-on-post-block-text-and-img {
     font-size: 16px;
@@ -225,17 +257,25 @@ a.link-to-post {
 }
 
 .comment-it {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 35px;
 }
 
 @media (max-width: 550px) {
   .comment-it {
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
   }
 }
 
@@ -253,14 +293,17 @@ a.link-to-post {
 }
 
 .comment-it-user-input {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 80% 20%;
+  -ms-grid-columns: 80% 20%;
+      grid-template-columns: 80% 20%;
   width: 100%;
 }
 
 @media (max-width: 550px) {
   .comment-it-user-input {
-    grid-template-columns: calc(100% - 90px) 90px;
+    -ms-grid-columns: calc(100% - 90px) 90px;
+        grid-template-columns: calc(100% - 90px) 90px;
   }
 }
 
@@ -290,6 +333,7 @@ a.link-to-post {
   border-radius: 0 20px 20px 0;
   font-size: 18px;
   cursor: pointer;
+  -webkit-transition: background-color .4s ease-in-out, color .1s ease-in-out;
   transition: background-color .4s ease-in-out, color .1s ease-in-out;
 }
 
@@ -300,6 +344,21 @@ a.link-to-post {
 .add-comment-btn:hover {
   background-color: #3D5AF1;
   color: #E2F3F5;
+}
+
+@-webkit-keyframes FadingNoYouDoNot {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes FadingNoYouDoNot {
@@ -319,18 +378,27 @@ a.link-to-post {
 
 .no-you-do-not {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 200px;
   height: 50px;
   border-radius: 15px;
   background-color: #22D1EE;
   border: 2px solid #0E153A;
   top: -78px;
-  animation-name: FadingNoYouDoNot;
-  animation-duration: 2.7s;
-  animation-fill-mode: forwards;
+  -webkit-animation-name: FadingNoYouDoNot;
+          animation-name: FadingNoYouDoNot;
+  -webkit-animation-duration: 2.7s;
+          animation-duration: 2.7s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .no-you-do-not .triangle {
@@ -367,12 +435,17 @@ a.link-to-post {
   height: 27px;
   left: -5px;
   top: -8px;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .single-comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 
 .single-comment-wrapper {
@@ -429,3 +502,4 @@ a.link-to-post {
 .span-hover:hover {
   text-decoration: underline;
 }
+/*# sourceMappingURL=singlePost.css.map */

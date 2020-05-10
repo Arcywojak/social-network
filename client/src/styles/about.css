@@ -1,8 +1,14 @@
 .map-and-text {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  align-items: center;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .map {
@@ -44,10 +50,16 @@
 
 .about-blocks {
   margin: 50px 0;
+  display: -ms-grid;
   display: grid;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: repeat(2, 500px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: (500px)[2];
+      grid-template-columns: repeat(2, 500px);
   gap: 3vw 5vw;
   width: 100%;
 }
@@ -69,6 +81,8 @@
   width: 100%;
   height: auto;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-size: 35px;
 }
@@ -99,11 +113,17 @@
   background-color: #0E153A;
   color: #22D1EE;
   width: 100%;
+  display: -ms-grid;
   display: grid;
   margin: 40px auto;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-  align-items: center;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .employee-list img {
@@ -131,17 +151,20 @@
 
 @media (max-width: 1300px) {
   .employee-list {
-    grid-template-columns: repeat(2, 1fr);
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 1050px) {
   .employee-list {
-    grid-template-columns: repeat(2, 1fr);
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
   }
   .about-blocks {
     gap: 5vw 4vw;
-    grid-template-columns: 45% 45%;
+    -ms-grid-columns: 45% 45%;
+        grid-template-columns: 45% 45%;
   }
   .about-block {
     max-width: 350px;
@@ -151,10 +174,12 @@
 
 @media (max-width: 850px) {
   .employee-list {
-    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
   }
   .map-and-text {
-    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
   }
   .map-and-text-child {
     margin: 0 auto;
@@ -173,7 +198,8 @@
 
 @media (max-width: 660px) {
   .about-blocks {
-    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
   }
   .text-with-img.about-section {
     font-size: 25px;
@@ -189,7 +215,8 @@
 
 @media (max-width: 380px) {
   .about-blocks {
-    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
   }
   .about-block {
     width: 100%;
@@ -197,7 +224,10 @@
     border-radius: 0;
   }
   .text-with-img.about-section {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .text-with-img.about-section img {
     width: 200px;
@@ -232,3 +262,4 @@
     padding: 0 25px;
   }
 }
+/*# sourceMappingURL=about.css.map */
