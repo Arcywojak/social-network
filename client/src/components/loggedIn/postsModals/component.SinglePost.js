@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {addComment, getComments} from '../../../actions/commentActions';
 import PropTypes from 'prop-types';
-import '../../../styles/singlePost.min.css';
+import '../../../styles/singlePost.css';
 import starIcon from '../../../images/starIcon.svg';
 import commentIcon from '../../../images/CommentIcon.svg';
 import SingleComment from './component.SingleComment';
@@ -38,6 +38,17 @@ class HomeLoggedIn extends Component {
                 }
             },3000)
         }
+    }
+
+    showComments = (e) => {
+
+        const commentList = e.target.parentNode.nextSibling.nextSibling.childNodes[0]
+
+        
+        if(commentList.classList.contains("hidden") ){
+            commentList.classList.remove("hidden")
+        }
+        console.log(e.target)
     }
 
     handleSubmit = (e) => {
@@ -180,11 +191,11 @@ class HomeLoggedIn extends Component {
 
                         <div className="react-on-post-block-vertical-line"></div>
 
-                        <div className="react-on-post-block-text-and-img">
+                        <div className="react-on-post-block-text-and-img  covering-before" onClick={(e)=>{this.showComments(e)}}>
                             <div className="react-on-post-block-img">
                                 <img src={commentIcon} alt="comment" />
                             </div>
-                            <div className="react-on-post-block-text">
+                            <div className="react-on-post-block-text" >
                                 See comments
                             </div>
                         </div>
@@ -205,7 +216,7 @@ class HomeLoggedIn extends Component {
 
                     <div className="comments-block">
                     
-                    <div className="comments-list">
+                    <div className="comments-list hidden">
 
                         {listOfComments}
 

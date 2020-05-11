@@ -182,6 +182,7 @@ a.link-to-post{
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
         font-size: 20px;
         padding: 8px;
         cursor: pointer;
@@ -426,4 +427,24 @@ a.link-to-post{
     &:hover{
         text-decoration: underline;
     }
+}
+.comments-list{
+
+    &.hidden{
+        max-height: 0 ;
+        overflow: hidden;
+        transition: max-height 5s ease-out;
+    }
+
+    transition: max-height 5s ease-out;
+    max-height: 5000px;
+}
+
+.covering-before::before{
+    content: '';
+    width:100%;
+    height: 100%;
+   
+    z-index: 5;
+    position: absolute;
 }

@@ -241,6 +241,8 @@ const mapStateToProps = (state, ownProps) => {
     let filteredPosts = [];
         filteredPosts = state.posts.posts.filter(post => post?.user_id === id);
 
+        console.log(state)
+
     return {
         isAuthenticated: state.auth.isAuthenticated,
         otherUser: state.otherUser.otherUser,
