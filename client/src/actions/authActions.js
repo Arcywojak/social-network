@@ -50,7 +50,7 @@ export const loadUser = () => (dispatch, getState) => {
     })
 };
 
-export const register = ({name, email, password, img}) => dispatch => {
+export const register = ({name, email, password, img, repPassword}) => dispatch => {
     const config = {
         headers:{
             "Content-type":"application/json"
@@ -58,7 +58,7 @@ export const register = ({name, email, password, img}) => dispatch => {
     }
 
     //parse values into string
-    const body = JSON.stringify({name, email, password, img})
+    const body = JSON.stringify({name, email, password, repPassword, img})
 
     axios
     .post('/api/users', body, config)

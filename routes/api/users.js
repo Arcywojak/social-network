@@ -21,6 +21,12 @@ router.post('/', (req,res) => {
         return res.status(400).json({msg:"passwords do not match"})
     }
 
+    const specialChars = /\W|_/g;
+
+    if(specialChars.test(name)){
+        return res.status(400).json({msg:"Name must not contain special characters"})
+    }
+
     //Check for existing user
     User.findOne({email})
         .then( user => {

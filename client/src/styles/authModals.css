@@ -342,7 +342,7 @@
   margin-bottom: 20px;
   font-size: 18px;
   font-weight: 500;
-  height: 40px;
+  min-height: 40px;
   -webkit-box-shadow: 10px 10px 84px -34px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 84px -34px rgba(0, 0, 0, 0.75);
   position: relative;

@@ -48,7 +48,7 @@ class Register extends Component {
                     this.scrollTopIfErrorOccur();
                 }, 1)
                 
-                
+                console.log(error)
                 this.setState({
                     errors2: error.msg.msg
                 })
@@ -84,7 +84,7 @@ class Register extends Component {
         e.preventDefault();
 
         const newUser = {
-            username: this.state.username,
+            name: this.state.username,
             email: this.state.email2,
             password: this.state.password2,
             repPassword: this.state.repPass,
