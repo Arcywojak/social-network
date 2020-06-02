@@ -9,8 +9,6 @@ import PropTypes from 'prop-types';
 import {getPosts} from '../../../actions/postActions';
 import {getOtherUser} from '../../../actions/userActions';
 import {getCommentsAll} from '../../../actions/commentActions';
-import '../../../styles/user.min.css';
-
 import SinglePost from '../postsModals/component.SinglePost';
 
 
@@ -26,13 +24,14 @@ class UserProfile extends Component {
             this.props.getCommentsAll();
         }
 
-        let userId = this.props.history.location.pathname.slice(6);
 
-        this.props.getOtherUser(userId);
+        let name = this.props.history.location.pathname.slice(6);
+
+        this.props.getOtherUser(name);
     }
 
     static propTypes = {
-        isAuthenticated: PropTypes.bool,
+       // isAuthenticated: PropTypes.bool,
         getOtherUser: PropTypes.func,
         getPosts: PropTypes.func,
         getCommentsAll: PropTypes.func
@@ -40,6 +39,8 @@ class UserProfile extends Component {
 
     componentDidUpdate(){
         this.checkOverflow();
+
+      
     }
 
     checkOverflow = () => {
@@ -133,24 +134,30 @@ class UserProfile extends Component {
     
     render(){
         
-      //  if(!this.props.isAuthenticated){
-      //     return  <Redirect to="/welcome" />
-        //}
+        if(!this.props.isAuthenticated && !this.props.auth.isLoading){
+           return  <Redirect to="/welcome" />
+        }
 
-        const listOfPosts = this.props?.userPosts.map(post => {
-            return (
-                <SinglePost post={post} key={post._id}/>
-            )
-            
-        })
+        const listOfPosts = this.props.userPosts.length > 0 ? (
+            this.props?.userPosts.map(post => {
+                return (
+                    <SinglePost post={post} key={post._id}/>
+                )
+                
+            })
+        ) : (
+            <div className="no-posts">
+                <h1>{this.props?.otherUser?.name} has not added any post yet.</h1>
+            </div>
+        )
 
-        const image = this.props?.post?.user_image !==undefined ? (
+        const image = this.props?.otherUser?.image !==undefined ? (
             <>
-               <img src={require(`../../../images/avatars/${this.props?.otherUser.image}`)} alt="me"/>
+               <img src={require(`../../../images/avatars/${this.props?.otherUser?.image}`)} alt="me"/>
             </>
         ) : (
          <>
-         <img src={require('../../../images/avatars/NoImg.png')} />
+         <img alt="me" src={require('../../../images/avatars/NoImg.png')} />
       </>
         )
 
@@ -179,7 +186,6 @@ class UserProfile extends Component {
                 <div className="user-profile-block">
                     <section className="user-profile-block-child-1">
                         <div className="user-profile-block-child-1-inner-scroll">
-                            <a href="#settings">ustawienie</a>
                         <div className="user-profile-block-user-text-and-img">
                             {image}
                             <h1>{this.props?.otherUser?.name}</h1>
@@ -206,9 +212,6 @@ class UserProfile extends Component {
                                  cheeseburger emmental queso cheesy grin cheese strings. Feta port-salut 
                                  queso.</p>
                         </div>
-
-                        <div id="settings" className="user-profile-block-child-1-line"></div>
-                            <h1>SETTINGS</h1>
 
                         </div>
                     </section>
@@ -241,10 +244,8 @@ const mapStateToProps = (state, ownProps) => {
     let filteredPosts = [];
         filteredPosts = state.posts.posts.filter(post => post?.user_id === id);
 
-        console.log(state)
-
     return {
-        isAuthenticated: state.auth.isAuthenticated,
+        isAuthenticated: state.auth,
         otherUser: state.otherUser.otherUser,
         userPosts: filteredPosts,
         comments: state.comment.comments

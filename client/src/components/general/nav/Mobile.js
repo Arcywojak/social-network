@@ -53,7 +53,7 @@ class Mobile extends Component {
             <a onClick={() => {toggleAuth('REGISTER')}}>Register</a>
         </li>
         <li className="navigation-item">
-            <a onClick={() => {toggleAuth('LOGIN')}}>Login</a>
+            <a  onClick={() => {toggleAuth('LOGIN')}}>Login</a>
         </li>   
         <li className="navigation-item">
             <NavLink to="/welcome">Home</NavLink>

@@ -6,7 +6,6 @@ import {getPosts} from '../../../actions/postActions';
 import PropTypes from 'prop-types';
 import {getCommentsAll, addComment} from '../../../actions/commentActions';
 import {addTime} from '../../../functions/functions';
-import '../../../styles/postDetails.min.css'
 import SingleComment from './component.SingleComment';
 import Axe from '../../../images/axe.svg';
 import GoBack from '../../../images/goBack.svg';
@@ -102,6 +101,10 @@ class PostDetails extends Component {
         let axeBlock = document.querySelector('.axe');
         let axeParentBlock = document.querySelector('.axe-parent');
 
+        if(axeParentBlock.clientHeight < 750){
+            return;
+        }
+
         if( //WE ARE INTO CONTENT  
               (
                 axeBlock.clientHeight - window.scrollY
@@ -187,7 +190,7 @@ class PostDetails extends Component {
                                 </div>
                                 <div className="post-details-presence-inner-author-text">
                                     Author <br/>
-                                    <Link to={`/user/${this.props?.post?.user_id}`}>
+                                    <Link to={`/user/${this.props?.post?.user_name}`}>
                                         <b>{this.props?.post?.user_name}</b>   
                                     </Link> 
                                 </div>
@@ -213,7 +216,7 @@ class PostDetails extends Component {
                     </section>
                     <section className='post-details-author-ad'>
                         <h2>{this.props?.post?.user_name} has added 6 posts. 
-                            <Link to={`/user/${this.props?.post?.user_id}`}>
+                            <Link to={`/user/${this.props?.post?.user_name}`}>
                                  Learn more about his content.
                             </Link>
                         </h2>

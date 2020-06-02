@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {addComment, getComments} from '../../../actions/commentActions';
 import PropTypes from 'prop-types';
-import '../../../styles/singlePost.css';
 import starIcon from '../../../images/starIcon.svg';
 import commentIcon from '../../../images/CommentIcon.svg';
 import SingleComment from './component.SingleComment';
@@ -48,7 +47,6 @@ class HomeLoggedIn extends Component {
         if(commentList.classList.contains("hidden") ){
             commentList.classList.remove("hidden")
         }
-        console.log(e.target)
     }
 
     handleSubmit = (e) => {
@@ -58,13 +56,17 @@ class HomeLoggedIn extends Component {
 
         if(message.length > 0){
             const {_id} = this.props.post
+
+            
             
             const newComment = {
                 post_id : _id,
                 user_name : this.props.user.name,
                 user_image : this.props.user.image,
+                user_id : this.props.user._id,
                 content : message
             }
+
             this.setState({
                 message: ''
             })
@@ -88,7 +90,7 @@ class HomeLoggedIn extends Component {
             </>
         ) : (
          <>
-         <img src={require('../../../images/avatars/NoImg.png')} />
+         <img alt="me" src={require('../../../images/avatars/NoImg.png')} />
       </>
         )
 
@@ -98,7 +100,7 @@ class HomeLoggedIn extends Component {
             </>
         ) : (
          <>
-         <img src={require('../../../images/avatars/NoImg.png')} />
+         <img alt="me" src={require('../../../images/avatars/NoImg.png')} />
       </>
         )
 

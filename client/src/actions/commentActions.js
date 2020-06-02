@@ -28,6 +28,7 @@ export const getComments = (id) => (dispatch, getState) => {
 }
 
 export const addComment = (item) => (dispatch, getState) => {
+
     axios
     .post('/api/comments', item, tokenConfig(getState))
     .then(res => {

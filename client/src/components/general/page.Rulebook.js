@@ -1,5 +1,4 @@
 import React from 'react'
-import '../../styles/rulebook.css'
 import {toggleAuth} from '../../functions/functions';
 
 const Rulebook = () => {

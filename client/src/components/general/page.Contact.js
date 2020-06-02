@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import logo from '../../images/Logo.svg';
 import {toggleAuth} from '../../functions/functions';
-import '../../styles/contact.css';
 
 const Contact = () => {
 
@@ -13,7 +12,6 @@ const Contact = () => {
        
         switch(whichFunc){
             case 'NAME':
-                console.log(name)
               return  setName(e.target.value);
             case 'EMAIL':
              return   setEmail(e.target.value);

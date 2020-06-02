@@ -34,6 +34,7 @@ router.post('/', auth, (req, res) => {
         post_id:req.body.post_id,
         user_name:req.body.user_name,
         user_image:req.body.user_image,
+        user_id:req.body.user_id,
         content:req.body.content
     });
 

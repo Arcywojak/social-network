@@ -15,6 +15,10 @@ const CommentSchema = new Schema({
         type:String,
         require:true
     },
+    user_id:{
+        type:String,
+        require:true
+    },
     content:{
         type:String,
         require:true

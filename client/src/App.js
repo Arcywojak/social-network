@@ -13,12 +13,24 @@ import Contact from './components/general/page.Contact';
 import PostDetails from './components/loggedIn/postsModals/page.PostDetails';
 import Page404 from './components/general/page.404';
 
-import './App.css';
-import './styles/ALL_STYLES.min.css';
-import './styles/homeLoggedOut.min.css';
-import './styles/footer.css';
-import './styles/mobile.css';
+import './styles/ALL_STYLES.css';
+import './styles/404.css';
+import './styles/about.css';
 import './styles/authModals.css';
+import './styles/contact.css';
+import './styles/createPostForm.css';
+import './styles/deskop.css';
+import './styles/footer.css';
+import './styles/homeLoggedIn.css';
+import './styles/homeLoggedOut.css';
+import './styles/loader.css';
+import './styles/mobile.css';
+import './styles/postDetails.css';
+import './styles/register.css';
+import './styles/rulebook.css';
+import './styles/singlePost.css';
+import './styles/user.css';
+
 
 
 class App extends Component {

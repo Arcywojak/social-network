@@ -4,10 +4,9 @@ import Mobile from './Mobile';
 import {connect} from 'react-redux';
 import {loadUser} from '../../../actions/authActions';
 import PropTypes from 'prop-types';
-import {removeAll, toggleOverlay} from '../../../functions/functions';
+import {removeAll} from '../../../functions/functions';
 import Register from '../../loggedOut/component.Register';
 import Login from '../../loggedOut/component.Login';
-import '../../../styles/loader.css'
 
 class Nav extends Component  {
     state = {
@@ -73,6 +72,8 @@ const mapStateToProps = state => {
     return {
         auth: state.auth
     }
+
+    
 }
 
 export default connect(mapStateToProps, {loadUser})(Nav);

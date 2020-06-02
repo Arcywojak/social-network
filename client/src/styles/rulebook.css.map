@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAGI,gBAHY,CAGZ,EAAE,CAAA;EACE,UAAU,EAAE,MAAM;CACrB;;AALL,AAMI,gBANY,CAMZ,EAAE,CAAA;EACE,OAAO,EAAC,MAAM;EACd,MAAM,EAAE,MAAO;EAEf,SAAS,EAAE,MAAM;CACpB",
-    "sources": [
-        "rulebook.scss"
-    ],
-    "names": [],
-    "file": "rulebook.css"
-}

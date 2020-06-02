@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {NavLink, Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {logout} from '../../../actions/authActions'
-import '../../../styles/desktop.css'
 import {toggleAuth} from '../../../functions/functions';
 
 class Desktop extends Component {
@@ -27,7 +26,7 @@ class Desktop extends Component {
                 <NavLink to="/contact">contact</NavLink>
             </li>
             <li className="nav-link">
-                <NavLink to={`/user/${this.props.user?._id}`}>
+                <NavLink to={`/user/${this.props.user?.name}`}>
                    <img src={require(`../../../images/avatars/${this.props.user?.image}`)} alt="me" />
                 </NavLink>
             </li>

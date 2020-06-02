@@ -5,7 +5,7 @@ import {toggleAuth} from '../../functions/functions';
 import {register} from '../../actions/authActions';
 import {clearErrors} from '../../actions/errorActions';
 import PropTypes from 'prop-types';
-
+import '../../styles/authModals.css';
 import x from '../../images/x.svg';
 import logo from '../../images/Logo.svg';
 import noImg from '../../images/avatars/NoImg.png';
@@ -48,7 +48,6 @@ class Register extends Component {
                     this.scrollTopIfErrorOccur();
                 }, 1)
                 
-                console.log(error)
                 this.setState({
                     errors2: error.msg.msg
                 })
@@ -88,7 +87,7 @@ class Register extends Component {
             email: this.state.email2,
             password: this.state.password2,
             repPassword: this.state.repPass,
-            image: this.state.avatar
+            image: `${this.state.avatar}.png`
         }
         
         this.props.register(newUser);

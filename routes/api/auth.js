@@ -64,9 +64,10 @@ router.get('/user', auth, (req, res) => {
 // @route   GET api/auth
 // @desc    GET user data (not logged, but other user)
 // @access  Private
-router.get('/user/:id', auth, (req, res) => {
-    User.findById(req.params.id)
+router.get('/user/:name', auth, (req, res) => {
+    User.findOne( {"name" : req.params.name } )
         .select('-password')
-        .then(user => res.json(user)) ;
+        .then(user => res.json(user))
+        .catch ;
 });
 module.exports = router

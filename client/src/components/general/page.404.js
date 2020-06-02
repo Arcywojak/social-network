@@ -1,10 +1,8 @@
 import React from 'react'
-import '../../styles/404.css'
 import img404 from '../../images/undraw_404.svg'
 
-const Page404 = (props) => {
+const Page404 = () => {
 
-    console.log(props)
     return (
         <main className="container">
             <div className="block-404">    

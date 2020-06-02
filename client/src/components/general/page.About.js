@@ -1,6 +1,5 @@
 import React from 'react'
 import {toggleAuth} from '../../functions/functions';
-import '../../styles/about.css';
 import funnyMan from '../../images/funnyMan2.svg';
 import logo from '../../images/Logo.svg';
 import flower from '../../images/flower.svg';
@@ -12,11 +11,9 @@ import luis from '../../images/luis.jpg'; //Photo by Luis Quintero on Unsplash
 import ashkan from '../../images/ashkan.jpg'; //Photo by Ashkan Forouzani on Unsplash
 import buildings from '../../images/buildings.svg';
 
-const click = () => {
-    const map = document.querySelector('.map');
 
-    console.log(map);
-}
+
+
 
 const About = () => {
 
@@ -96,14 +93,14 @@ const About = () => {
                 </section>
                 <div className="text-with-img about-section"> 
                     <img src={buildings} alt="logo"/>
-                    <p onClick={click}>Our localization</p>
+                    <p>Our localization</p>
                 </div>
                 <div className="map-and-text">
                 <p className="map">
                     <iframe
                     title="google-map" 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7484.749939541333!2d57.65290257693313!3d-20.284740745624255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217cf63001d0f05f%3A0x772e2699afca3987!2sMontagne%20Blanche%2C%20Mauritius!5e0!3m2!1spl!2spl!4v1581783904493!5m2!1spl!2spl"                         
-                    allowfullscreen="">
+                    allowFullScreen="">
                     </iframe>
                 </p>
                 <div className="map-and-text-child">
