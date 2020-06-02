@@ -1,0 +1,50 @@
+.block-404 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3vw 5vw;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #0E153A;
+}
+
+.block-404-first {
+  max-width: 750px;
+}
+
+.block-404-first img {
+  width: 90%;
+}
+
+.block-404-second h1 {
+  font-size: 4em;
+}
+
+.block-404-second h2 {
+  font-size: 2.5em;
+}
+
+.block-404-second h3 {
+  font-size: 1.6em;
+}
+
+@media (max-width: 700px) {
+  .block-404-second h1 {
+    font-size: 2em;
+  }
+  .block-404-second h2 {
+    font-size: 1.2em;
+  }
+  .block-404-second h3 {
+    font-size: 1em;
+  }
+}
+/*# sourceMappingURL=404.css.map */

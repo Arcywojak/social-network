@@ -1,0 +1,18 @@
+@import './main-colors.scss';
+
+.inner-container{
+    width:100%;
+    max-width: 1100px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    border-left:1px solid $dark-blue;
+    border-right:1px solid $dark-blue;
+    background: rgb(150,227,255);
+    
+
+    @media(max-width: 700px){
+        padding: 20px 0;
+        
+    }
+}

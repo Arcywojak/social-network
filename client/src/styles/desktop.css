@@ -1,0 +1,112 @@
+.deskop-filler {
+  height: 100px;
+}
+
+.deskop-header {
+  width: 100%;
+  position: fixed;
+  height: 100px;
+  background-color: #3D5AF1;
+  padding: 0 4vw;
+  z-index: 2;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.deskop-nav {
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 110px 1fr;
+      grid-template-columns: 110px 1fr;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-logo-desktop {
+  color: #E2F3F5;
+  height: inherit;
+  line-height: 85px;
+  font-weight: 600;
+  font-size: 65px;
+  cursor: pointer;
+}
+
+a.logo {
+  text-decoration: none;
+}
+
+.nav-block {
+  margin: 0 0 0 auto;
+  height: 100%;
+}
+
+.nav-block ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.nav-list {
+  height: inherit;
+  margin: 0;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-list.four {
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+}
+
+.nav-list.five {
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+}
+
+.nav-link {
+  color: #E2F3F5;
+  margin: 0 calc(.5vw + 5px);
+  font-size: 1.4rem;
+  height: inherit;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: #E2F3F5;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  padding: 0 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.nav-link a:hover {
+  background-color: #1134ea;
+}
+
+.nav-link a img {
+  width: 50px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.nav-link a.active {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=desktop.css.map */
