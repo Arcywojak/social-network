@@ -1,6 +1,6 @@
 # Very simple version of social-network
 
-Project available here on Heroku: https://glacial-lowlands-08446.herokuapp.com/welcome 
+## Project available [here](https://almost-social-network.herokuapp.com/welcome) on Heroku.  
 
 # Technologies which contributed to this project:  
 1) Front-end / design:  
