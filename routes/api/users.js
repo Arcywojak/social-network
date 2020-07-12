@@ -35,7 +35,7 @@ router.post('/', (req,res) => {
     }
 
     if(password.length < 3){
-        return res.status(400).json({msg:"the name is too short"})
+        return res.status(400).json({msg:"the password is too short"})
     }
 
     const emailValidator = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
